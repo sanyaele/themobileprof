@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-7718160-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-7718160-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Get Discount On Payment Integration</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            padding-top: 5px;
+        }
+    </style>
+
+  </head>
+
+  <body>
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Intro Content -->
+        <form action="pay.php" method="POST">
+            <div class="form-group">
+                <h5 class="form-text"><span class="text-primary">Pay Now!</span> <br>
+                    <small>And be eligible for a 20% discount. That is <strong>N10,000</strong> saving if you want one of the payment options, and <strong class="text-danger">N20,000</strong> savings if you want both</small></h5>
+                </div>
+            <div class="form-check">
+                    <input class="form-check-input calc" type="checkbox" value="Naira" id="naira_payment">
+                    <label class="form-check-label small calc" for="naira_payment">
+                        Naira Payment Integration (<strong>N40,000</strong> <s>N50,000</s>)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input calc" type="checkbox" value="Dollar" id="dollar_payment">
+                    <label class="form-check-label small calc" for="dollar_payment">
+                        Dollar Payment Integration (<strong>N40,000</strong> <s>N50,000</s>)
+                    </label>
+                </div>
+                <div>
+                    <div class="cost_div">
+                        <h2 class="text-danger">Total: <strong id="cost_total">N0.00</strong> </h2>
+                    </div>
+                </div>
+                
+                <hr class="bg-primary">
+                <div class="form-group">
+                    <input name="firstname" placeholder="Firstname" onblur="this.placeholder = 'Firstname'" class="form-control form-control-sm" required="" type="text" required>
+                </div>
+                <div class="form-group">
+                    <input name="lastname" placeholder="Lastname" onblur="this.placeholder = 'Lastname'" class="form-control form-control-sm" required="" type="text" required>
+                </div>
+                <div class="form-group">
+                    <input name="email" placeholder="Email" onblur="this.placeholder = 'Email'" class="form-control form-control-sm" required="" type="email" required>
+                </div>
+                <div class="form-group">
+                    <input name="mobile" placeholder="Telephone" onblur="this.placeholder = 'Telephone'" class="form-control form-control-sm" required="" type="text" required>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary col-12" type="submit"> Pay Now <i class="fa fa-credit-card ml-1"></i></button>
+                </div>
+                <div class="col-12 small">
+                    <input type="hidden" name="for" value="Payment Integration">
+                    <input type="hidden" name="amount" id="amount" value="40000">
+                    <input type="hidden" name="pg" value="pay_payment">
+                    <a href="online-payment.html" target="_top">Get More Info</a> | <a href="index.html" target="_top">SEONigeria.com</a>
+                </div>
+            </form>
+      <!-- /.form -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/pay_pricing.js"></script>
+
+  </body>
+
+</html>

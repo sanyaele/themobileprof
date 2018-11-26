@@ -1,0 +1,109 @@
+/*!
+ * Start Bootstrap - Modern Business (https://startbootstrap.com/template-overviews/modern-business)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Raleway', sans-serif !important;
+
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+h1, h2 {
+  margin-top: 20px;
+}
+.card-header {
+  background-color: rgba(0, 123, 255, 0.74);
+  color: aliceblue;
+}
+.chatbox {
+  background-color: rgb(0, 0, 0);
+  padding: 20px;
+  color: beige;
+  font-family: 'Raleway', sans-serif !important;
+}
+.card-header a {
+  color: beige;
+}
+.anchorhead {
+  margin-top: 50px;
+}
+.train_details li span {
+  font-size: 20px;
+  color: #a73737;
+}
+
+.cal-date, .cal-details {
+  margin-bottom: 50px;
+}
+
+.cal-date {
+  border-bottom: #b4b4b4 solid 1px;
+}
+.cal-date div {
+  font-size: 20px;
+  color: #a73737;
+}
+
+.cal-date p {
+  font-size: 15px;
+}
+
+
+.cal-details {
+  border-bottom: #000000 solid 2px;
+}
+
+.cal-details ul {
+  list-style-type: none;
+  font-size: 20px;
+}
+
+.cal-details div {
+  font-size: 20px;
+}
+.card-img-top {
+  border-radius: 0;
+}
+.soc-icon {
+  font-size: 50px;
+}
+.soc-icon span {
+  margin: 10px;
+}
+.cost_div {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+#cost_pay {
+  font-size: 20px;
+}

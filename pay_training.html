@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-7718160-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-7718160-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Pay for Training</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            padding-top: 5px;
+            margin: 1px;
+        }
+    </style>
+
+  </head>
+
+  <body>
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Intro Content -->
+        <form action="pay.php" method="POST">
+                <div class="col-12 mt-2">
+                    <input name="firstname" placeholder="Firstname" onblur="this.placeholder = 'Firstname'" class="form-control" required="" type="text" required>
+                </div>
+                <div class="col-12 mt-2">
+                    <input name="lastname" placeholder="Lastname" onblur="this.placeholder = 'Lastname'" class="form-control" required="" type="text" required>
+                </div>
+                <div class="col-12 mt-2">
+                    <input name="email" placeholder="Email" onblur="this.placeholder = 'Email'" class="form-control" required="" type="email" required>
+                </div>
+                <div class="col-12 mt-2">
+                    <input name="mobile" placeholder="Telephone" onblur="this.placeholder = 'Telephone'" class="form-control" required="" type="text" required>
+                </div>
+                <div class="col-12 mt-2">
+                    <button class="btn btn-primary col-12" type="submit" data-toggle="collapse">Pay For Training <i class="fa fa-paper-plane-o ml-1"></i></button>
+                </div>
+                <div>
+                    <input type="hidden" name="for" value="Business Training">
+                    <input type="hidden" name="amount" value="57600">
+                    <input type="hidden" name="pg" value="pay_training">
+                </div>
+            </form>
+      <!-- /.form -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
