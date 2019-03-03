@@ -144,7 +144,7 @@
             <div class="col-lg-4 mb-4">
                 <div class="card h-100">
                     <h4 class="card-header">SEO and Online Marketing</h4>
-                        <a href="#"><img class="card-img-top" src="assets/digital-marketing-nigeria.jpg" alt=""></a>
+                        <a href="#"><img class="card-img-top" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="assets/digital-marketing-nigeria.jpg" alt="Digital Marketing in Nigeria"></a>
                     <div class="card-body">
                         <p class="card-text"><strong>Want improved search engine rankings and higher social media engagement?</strong></p>
                         <p class="card-text">There is little benefit to building a website that is not visible on <strong>Search Engines.</strong> We build websites from the ground up to be able to rank well for your Products and Services on the major Search Engines like Google, Yahoo, and Bing
@@ -209,7 +209,7 @@
                 <p>The world is going Online, do not let your business be left behind, and don't let your competitors take all your market</p>
             </div>
             <div class="col-lg-6">
-                <img class="img-fluid rounded pt-5" src="assets/online-marketing.jpg" alt="">
+                <img class="img-fluid rounded pt-5" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="assets/online-marketing.jpg" alt="Online Marketing Nigeria">
             </div>
         </div>
         <!-- /.row -->
@@ -222,7 +222,7 @@
         <div class="row">
             <div class="col-lg-4 col-sm-6 portfolio-item">
                 <div class="card h-100">
-                    <a href="wordpress-management.html"><img class="card-img-top" src="assets/wordpress.png" alt="Mobile Business Office Training"></a>
+                    <a href="wordpress-management.html"><img class="card-img-top" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="assets/wordpress.png" alt="Wordpress design and maintenance"></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="wordpress-management.html"><strong>Wordpress:</strong> Design &amp; Management </a>
@@ -236,7 +236,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 portfolio-item">
                 <div class="card h-100">
-                    <a href="online-payment.html"><img class="card-img-top" src="assets/payment_card.jpg" alt="Online Payment"></a>
+                    <a href="online-payment.html"><img class="card-img-top" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="assets/payment_card.jpg" alt="Online Payment"></a>
                     
                     <div class="card-body">
                         <h4 class="card-title">
@@ -252,7 +252,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 portfolio-item">
                 <div class="card h-100">
-                    <a href="http://csbot.me" target="_blank"><img class="card-img-top" src="assets/chatrobot.jpg" alt=""></a>
+                    <a href="http://csbot.me" target="_blank"><img class="card-img-top" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="assets/chatrobot.jpg" alt="Chatbot"></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="http://csbot.me" target="_blank">Chatbot development</a>
@@ -292,12 +292,21 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        for (var i=0; i<imgDefer.length; i++) {
+        if(imgDefer[i].getAttribute('data-src')) {
+        imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
+        } } }
+        window.onload = init;
+    </script> 
 
 
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
-    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='vendor/Raleway/raleway.css' rel='stylesheet' type='text/css'>
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
    
 </body>

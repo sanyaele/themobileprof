@@ -107,3 +107,14 @@ h1, h2 {
 #cost_pay {
   font-size: 20px;
 }
+.portfolio-item .card-footer {
+  font-size: 20px;
+  color: #ff4242;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: bold;
+}
+.training_check {
+  transform: scale(2);
+  float: left;
+  margin: 8px;
+}

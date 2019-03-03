@@ -108,6 +108,7 @@ if (!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['
 
     gtag('config', 'UA-7718160-1');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
