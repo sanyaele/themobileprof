@@ -1,13 +1,13 @@
-<?php
-///// Disable below in production
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-///////////////////////////////////////
-session_start();
-///////////////////////////////////////
+<?php 
+
 require_once ('includes/db.php');
+require_once ('includes/common.php');
 require_once ('includes/training.php');
+///////////////////////////////////////
+use Training\coupon AS couponClass;
+///////////////////////////////////////
+// Set Course ID
+$_SESSION['course'] = 1;
 ///////////////////////////////////////
 
 
@@ -22,16 +22,11 @@ $ddates = get_date_range($day, "March");
 ////////////////////////////////////////
 ////////////////////////////////////////
 if (!empty($_GET['coupon'])){
-  $coup = $_GET['coupon'];
   $_SESSION['coupon'] = $_GET['coupon'];
 }
 
 if (!empty($_SESSION['coupon'])){
-  $coup = $_SESSION['coupon'];
-}
-
-if (!empty($coup)){
-  $discount = new coupon($coup);
+  $discount = new couponClass($_SESSION['coupon']);
   $coupon = $discount->get_coupon($link);
 }
 
@@ -127,7 +122,7 @@ if (!empty($coup)){
           <!-- Related Projects Row -->
       <h3 class="my-4">Curriculum Calendar for <strong><?php echo $ddates['my']; ?></strong></h3>
 
-      <form action="pay_training.html" method="post">
+      <form action="process.php" method="post" target="pay_frame">
         <div class="form-group">
           Select your Preferred Training Days 
           <select class="form-control form-control-lg bg-light" name="day" id="day">
@@ -282,12 +277,16 @@ if (!empty($coup)){
                 <input name="mobile" placeholder="Telephone" onblur="this.placeholder = 'Telephone'" class="form-control" required="" type="text" required>
             </div>  
             <div class="form-group">
-              <button type="submit" class="btn btn-primary form-control">Register for Class</button>
+              <input type="hidden" name="for" id="for" value="Mobile Productivity Training">
+              <input type="hidden" name="pg" id="pg" value="mobile-business-training">
+              <input type="hidden" name="coupon" id="coupon" value="<?php echo $_SESSION['coupon']; ?>">
+              <button type="submit" class="btn btn-primary form-control" data-toggle="modal" data-target="#payModal">Register for Class</button>
             </div>
             
           </div>
         
         </div>
+        
         <!-- /.row -->
       </form>
 
@@ -306,7 +305,7 @@ if (!empty($coup)){
               <li class="list-group-item">3 Thorborn Avenue, Sabo, Yaba</li>
               <li class="list-group-item">Fee covers Training, Training materials and Certificated of Completion</li>
               <li class="list-group-item">
-                  <iframe src="pay_training.html" frameborder="0" width="100%" height="500" name="payframe"></iframe>
+                  <!-- <iframe src="pay_training.html" frameborder="0" width="100%" height="500" name="payframe"></iframe> -->
                 <!-- <a href="https://rave.flutterwave.com/pay/seonigeria-business-training-discount" class="btn btn-primary">Grab 20% Discount on First 10 Seats!</a> -->
               </li>
             </ul>
@@ -320,6 +319,24 @@ if (!empty($coup)){
       
     </div>
     <!-- /.container -->
+
+    <!-- Pay Modal-->
+    <div class="modal fade" id="payModal" tabindex="-1" role="dialog" aria-labelledby="payModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="payModalLabel">Pay for Training</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <iframe src="" name="pay_frame" frameborder="0"></iframe>
+          </div>
+          
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">

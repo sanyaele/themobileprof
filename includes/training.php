@@ -1,21 +1,6 @@
 <?php
-function get_date_range ($day="Monday", $month=""){
-    if (!empty($month)){
-      $monthYear = $month." ".date("Y");
-    } else {
-      $monthYear = date("F Y", strtotime("next month"));
-    }
-  
-    $dates['my'] = $monthYear;
-    
-    $dates['fourth'] = date("l jS F, Y", strtotime("last $day of $monthYear"));
-    $dates['third'] = date("l jS F, Y", strtotime("last $day of $monthYear - 7 days"));
-    $dates['second'] = date("l jS F, Y", strtotime("last $day of $monthYear - 14 days"));
-    $dates['first'] = date("l jS F, Y", strtotime("last $day of $monthYear - 21 days"));
-  //echo "last $day of $monthYear";
-  
-    return $dates;
-}
+namespace Training;
+
 
 class coupon {
     public $dblink;
@@ -35,4 +20,6 @@ class coupon {
         return $row;
     }
 }
+
+
 ?>
