@@ -1,6 +1,8 @@
 <?php
 namespace Process;
 
+class MyException extends \Exception { }
+
 require_once 'common.php';
 require_once 'training.php';
 
@@ -21,13 +23,13 @@ class process {
 
     private $unit_cost = 0;
     private $total_cost = 0;
-    private $amount = 0;
+    public $amount = 0;
 
     private $day;
-    private $week1;
-    private $week2;
-    private $week3;
-    private $week4;
+    private $week1 = 0;
+    private $week2 = 0;
+    private $week3 = 0;
+    private $week4 = 0;
 
     private $ref;
 
@@ -57,7 +59,7 @@ class process {
         $this->day = addslash($_POST['day']);
 
         if (!empty($_POST['week1'])){
-            $this->week1 = addslash($_POST['week1']);
+            $this->week1 = 1;
 
             if (empty($this->coupon['week1'])){ //If coupon doesn't cover week 1
                 $this->amount += $this->unit_cost;
@@ -66,7 +68,7 @@ class process {
         }
 
         if (!empty($_POST['week2'])){
-            $this->week2 = addslash($_POST['week2']);
+            $this->week2 = 1;
             
             if (empty($this->coupon['week2'])){ //If coupon doesn't cover week 2
                 $this->amount += $this->unit_cost;
@@ -74,7 +76,7 @@ class process {
         }
 
         if (!empty($_POST['week3'])){
-            $this->week3 = addslash($_POST['week3']);
+            $this->week3 = 1;
             
             if (empty($this->coupon['week3'])){ //If coupon doesn't cover week 3
                 $this->amount += $this->unit_cost;
@@ -82,7 +84,7 @@ class process {
         }
 
         if (!empty($_POST['week4'])){
-            $this->week4 = addslash($_POST['week4']);
+            $this->week4 = 1;
             
             if (empty($this->coupon['week4'])){ //If coupon doesn't cover week 4
                 $this->amount += $this->unit_cost;
@@ -112,14 +114,16 @@ class process {
         $tranx = curl_post('https://api.paystack.co/transaction/initialize', $data);
 
         if (!empty($tranx['data']['authorization_url'])){
-            if($this->add_db($this->dblink)){
-                header("Location: ".$tranx['data']['authorization_url']);
-            } else {
-                return FALSE;
-            }
+            return $tranx['data']['authorization_url'];
+
+            // if($this->add_db($this->dblink)){
+            //         header("Location: ".$tranx['data']['authorization_url']);
+            // } else {
+            //     throw new MyException("Couldn't add details to database");
+            // }
             
         } else {
-            return FALSE;
+            throw new MyException("Couldn't Initialize Transaction");
         }
     }
 
@@ -128,11 +132,11 @@ class process {
         $result = @mysqli_query($db, $sql);
         $row = @mysqli_fetch_assoc($result);
 
-        $this->unit_cost = $row['unit_cost'];
-        $this->total_cost = $row['total_cost'];
+        $this->unit_cost = $row['unit_cost']*100;
+        $this->total_cost = $row['total_cost']*100;
     }
     
-    function add_db ($link){
+    function add_db ($link,$paid=""){
         $coupon = (!empty($_SESSION['coupon'])) ? $_SESSION['coupon'] : "";
 
         $sql = "INSERT INTO `registration` SET
@@ -140,8 +144,13 @@ class process {
         `lastname` = '$this->lastname',
         `email` = '$this->email',
         `telephone` = '$this->mobile',
-        `course_id` = '$this->course;',
+        $paid
+        `course_id` = '$this->course',
         `coupon_name` = '$coupon',
+        `week1` = '$this->week1',
+        `week2` = '$this->week2',
+        `week3` = '$this->week3',
+        `week4` = '$this->week4',
         `ref` = '$this->ref'";
         if (@mysqli_query($link, $sql)){
             return TRUE;
@@ -160,6 +169,10 @@ class verify {
         global $link;
         $this->dblink = $link;
 
+        
+    }
+
+    function confirm (){
         $url = 'https://api.paystack.co/transaction/verify/'.$_SESSION['ref'];
         $tranx = curl_get ($url);
 

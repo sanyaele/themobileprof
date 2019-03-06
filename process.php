@@ -9,10 +9,31 @@ use Process\verify AS confirm;
 if (empty($_SESSION['ref'])){
     // FORM HAS BEEN SUBMITTED, BUT PAYMENT HAS NOT BEEN INITIATED
     $make_pay = new initiate;
-    if (!($make_pay->process_pay())){
-        echo "Error: There was a problem Initiating this payment";
+
+    try {
+        // Process Paystack payment if amount is more than 0
+        if (!empty($make_pay->amount)){
+            $destination = $make_pay->process_pay();
+            $paid = "";
+        } else {
+            $paid = "`status` = 'paid',";
+        }
+        
+    } catch (\Throwable $th) {
+        //throw $th;
+        echo "Error: ".$th;
         exit();
+    } finally {
+        // Add to database
+        $make_pay->add_db($link, $paid); 
+
+        // Redirect to payment, if amount is more than zero
+        if (!empty($make_pay->amount)){
+            header ("Location: ".$destination);
+        }
     }
+
+
 } else {
     // PAYMENT HAS BEEN INITIATED, VERIFY THE PAYMENT
     if (!($verify_pay = new confirm)){
@@ -22,6 +43,8 @@ if (empty($_SESSION['ref'])){
 
 }
 
+
+// Only proceed beyond here when payment is confirmed or amount is 0
 ?>
 <!DOCTYPE html>
 <html lang="en">
