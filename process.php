@@ -56,10 +56,10 @@ if (empty($_SESSION['ref'])){
 </head>
 <body>
     <div>
-        <img src="images/success.gif" alt="Transfer Successful" class="img-fluid">
+        <img src="images/success.gif" alt="Transfer Successful" class="img-responsive" width="100%">
     </div>
     <div>
-      Your transfer was successful <a href="index.php" class="btn btn-info" target="_top">Continue</a>
+      Your transfer was successful <a href="mobile-business-training.php" class="btn btn-info" target="_top">Continue</a>
     </div>
 </body>
 </html>
