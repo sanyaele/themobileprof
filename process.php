@@ -36,7 +36,8 @@ if (empty($_SESSION['ref'])){
 
 } else {
     // PAYMENT HAS BEEN INITIATED, VERIFY THE PAYMENT
-    if (!($verify_pay = new confirm)){
+    $verify_pay = new confirm;
+    if (!($verify_pay->confirm())){
         echo "Thank you. We will verify your payment and get back to you as soon as possible";
         exit();
     }
