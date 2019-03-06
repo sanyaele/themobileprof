@@ -32,6 +32,7 @@ class process {
     private $week4 = 0;
 
     private $ref;
+    private $callback = "https://www.seonigeria.com/process.php";
 
     function __construct(){
         global $link;
@@ -109,7 +110,7 @@ class process {
     }
 
     function process_pay(){
-        $data = array('email' => $this->email, 'amount' => $this->amount, "reference" => $this->ref);
+        $data = array('email' => $this->email, 'amount' => $this->amount, "reference" => $this->ref, "callback_url" => $this->callback);
 
         $tranx = curl_post('https://api.paystack.co/transaction/initialize', $data);
 
