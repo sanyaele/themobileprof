@@ -1,12 +1,13 @@
 <?php // common.php
 session_start();
 ///// Disable below in production
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 /// CONSTANTS /////
 define('testKey', 'sk_test_65b67291a1f77372d1bd4304145784cf88c9aa0d');
 
+define('liveKey', 'sk_live_108c3e755bd0d1e35858c479986ff7d46c2d3b11');
 //////////////////////////////////////////////////////////
 function curl_get ($url){ 
 	$curl = curl_init();
@@ -16,7 +17,7 @@ function curl_get ($url){
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_CUSTOMREQUEST => "GET",
 	CURLOPT_HTTPHEADER => [
-		"authorization: Bearer ".testKey, 
+		"authorization: Bearer ".liveKey, 
 		"cache-control: no-cache"
 	],
 	));
@@ -43,7 +44,7 @@ function curl_post ($url, $data){
         // Set HTTP Header for POST request 
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             "Content-Type: application/json",
-            "authorization: Bearer ".testKey, 
+            "authorization: Bearer ".liveKey, 
             "cache-control: no-cache"
         ));
 

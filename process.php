@@ -37,8 +37,10 @@ if (empty($_SESSION['ref'])){
 } else {
     // PAYMENT HAS BEEN INITIATED, VERIFY THE PAYMENT
     $verify_pay = new confirm;
+
     if (!($verify_pay->confirm())){
         echo "Thank you. We will verify your payment and get back to you as soon as possible";
+        unset ($_SESSION['ref']);
         exit();
     }
     unset ($_SESSION['ref']);
@@ -60,7 +62,7 @@ if (empty($_SESSION['ref'])){
         <img src="images/success.gif" alt="Transfer Successful" class="img-responsive" width="100%">
     </div>
     <div>
-      Your transfer was successful <a href="mobile-business-training.php" class="btn btn-info" target="_top">Continue</a>
+      Your registration was successful <a href="mobile-business-training.php" class="btn btn-info" target="_top">Continue</a>
     </div>
 </body>
 </html>

@@ -145,6 +145,7 @@ class process {
         `lastname` = '$this->lastname',
         `email` = '$this->email',
         `telephone` = '$this->mobile',
+        `amount` = '$this->amount'
         $paid
         `course_id` = '$this->course',
         `coupon_name` = '$coupon',
@@ -165,6 +166,7 @@ class process {
 
 class verify {
     private $dblink;
+    private $details = array();
 
     function __construct(){
         global $link;
@@ -178,8 +180,10 @@ class verify {
         $tranx = curl_get ($url);
 
         if (!empty($tranx['data']['status'])){
-            $this->edit_db($this->dblink);
-            $this->send_email();
+            $this->details = $this->get_details($this->dblink); // Get registration details
+            $this->edit_db($this->dblink); // Update registration as paid
+            $this->send_admin_email();
+            $this->send_user_email();
             return TRUE;
         } else {
             return FALSE;
@@ -199,42 +203,60 @@ class verify {
         }
     }
 
-    function send_email (){
+    function send_admin_email (){
         // Create the email and send the message
-        $details = $this->get_details($this->dblink);
+        
         
         $to = 'contact@seonigeria.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
-        $email_subject = "Payment for  ".$details['course_name'];
+        $email_subject = "Payment for  ".$this->details['course_name'];
         $email_body = "
-        Someone just sent payment for $details[course_name]\n\n".
+        Someone just sent payment for ".$this->details['course_name']."\n\n".
         "Here are the details:\n\n 
-        Name: $details[firstname] $details[lastname] \n\n 
-        Email: $details[email]\n\n 
-        Phone: $details[telephone]\n\n 
-        Amount: $details[amount]\n\n 
-        Course: $details[course_name]\n\n
-        Coupon Name: $details[coupon_name]\n\n
-        Transaction Reference: $details[ref]\n\n 
+        Name: ".$this->details['firstname']." $this->details[lastname] \n\n 
+        Email: ".$this->details['email']."\n\n 
+        Phone: ".$this->details['telephone']."\n\n 
+        Amount: ".$this->details['amount']."\n\n 
+        Course: ".$this->details['course_name']."\n\n
+        Coupon Name: ".$this->details['coupon_name']."\n\n
+        Transaction Reference: ".$this->details['ref']."\n\n 
         Kindly reach out to the client to discuss further";
         $headers = "From: noreply@seonigeria.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-        $headers .= "Reply-To: ".$details['email'];   
+        $headers .= "Reply-To: ".$this->details['email'];   
         
         if (mail($to,$email_subject,$email_body,$headers)){
-            $cont['head'] = "Application Received";
-            if ($this->for == "Domain name"){
-                $cont['body'] = "We have received your application, kindly click on <strong>Pay Now</strong> to pay for your domain name (".$_POST['domain']."), we will purchase it within 24 working hours. And a Project manager will be assigned to your account, who will call you on $_SESSION[mobile], to collect the materials to commence work on your website and give you details on how to proceed";
-            } else {
-                $cont['body'] = "We have received your application, and a Team member will call you within 24 hours to commence integration. <br>
-            Thank you.";
-            }
-            
+
+            return TRUE;
         } else {
-            $cont['head'] = "Error Processing Request";
-            $cont['body'] = "There was an error sending this request. Kindly email or call us to notify of this error. <br>
-            Thank you.";
+            return FALSE;
         }
     
-        //return $cont;
+    }
+
+    
+
+    function send_user_email (){
+        
+        $to = $this->details[email]; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+        $email_subject = "Payment for  ".$this->details['course_name'];
+        $email_body = "
+        We have received your registration for ".$this->details['course_name']."\n\n".
+        "Here are the details:\n\n 
+        Name: ".$this->details['firstname']." ".$this->details['lastname']." \n\n
+        Phone: ".$this->details['telephone']."\n\n 
+        Amount: ".$this->details['amount']."\n\n 
+        Course: ".$this->details['course_name']."\n\n
+        Coupon Name: ".$this->details['coupon_name']."\n\n
+        A Team member will call you within 24 hours with additional class details.";
+        $headers = "From: noreply@seonigeria.com\n"; 
+        $headers .= "Reply-To: contact@seonigeria.com";   
+        
+        if (mail($to,$email_subject,$email_body,$headers)){
+
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    
     }
 
     function get_details ($db){
