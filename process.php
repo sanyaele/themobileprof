@@ -40,7 +40,7 @@ if (empty($_SESSION['ref'])){
         echo "Thank you. We will verify your payment and get back to you as soon as possible";
         exit();
     }
-
+    unset ($_SESSION['ref']);
 }
 
 
