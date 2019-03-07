@@ -145,7 +145,7 @@ class process {
         `lastname` = '$this->lastname',
         `email` = '$this->email',
         `telephone` = '$this->mobile',
-        `amount` = '$this->amount'
+        `amount` = '$this->amount',
         $paid
         `course_id` = '$this->course',
         `coupon_name` = '$coupon',
@@ -209,17 +209,16 @@ class verify {
         
         $to = 'contact@seonigeria.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
         $email_subject = "Payment for  ".$this->details['course_name'];
-        $email_body = "
-        Someone just sent payment for ".$this->details['course_name']."\n\n".
+        $email_body = "Someone just sent payment for ".$this->details['course_name']."\n\n".
         "Here are the details:\n\n 
-        Name: ".$this->details['firstname']." $this->details[lastname] \n\n 
+        Name: ".$this->details['firstname']." ". $this->details['lastname'] ."\n\n 
         Email: ".$this->details['email']."\n\n 
         Phone: ".$this->details['telephone']."\n\n 
         Amount: ".$this->details['amount']."\n\n 
         Course: ".$this->details['course_name']."\n\n
         Coupon Name: ".$this->details['coupon_name']."\n\n
-        Transaction Reference: ".$this->details['ref']."\n\n 
-        Kindly reach out to the client to discuss further";
+        Transaction Reference: ".$this->details['ref']."\n\n".
+        "Kindly reach out to the client to discuss further";
         $headers = "From: noreply@seonigeria.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
         $headers .= "Reply-To: ".$this->details['email'];   
         
@@ -238,15 +237,14 @@ class verify {
         
         $to = $this->details[email]; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
         $email_subject = "Payment for  ".$this->details['course_name'];
-        $email_body = "
-        We have received your registration for ".$this->details['course_name']."\n\n".
+        $email_body = "We have received your registration for ".$this->details['course_name']."\n\n".
         "Here are the details:\n\n 
         Name: ".$this->details['firstname']." ".$this->details['lastname']." \n\n
         Phone: ".$this->details['telephone']."\n\n 
         Amount: ".$this->details['amount']."\n\n 
         Course: ".$this->details['course_name']."\n\n
-        Coupon Name: ".$this->details['coupon_name']."\n\n
-        A Team member will call you within 24 hours with additional class details.";
+        Coupon Name: ".$this->details['coupon_name']."\n\n".
+        "A Team member will call you within 24 hours with additional class details.";
         $headers = "From: noreply@seonigeria.com\n"; 
         $headers .= "Reply-To: contact@seonigeria.com";   
         
