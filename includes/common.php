@@ -5,9 +5,7 @@ session_start();
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 /// CONSTANTS /////
-define('testKey', 'sk_test_65b67291a1f77372d1bd4304145784cf88c9aa0d');
-
-define('liveKey', 'sk_live_108c3e755bd0d1e35858c479986ff7d46c2d3b11');
+require_once 'keys.php';
 //////////////////////////////////////////////////////////
 function curl_get ($url){ 
 	$curl = curl_init();
