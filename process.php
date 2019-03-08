@@ -30,6 +30,8 @@ if (empty($_SESSION['ref'])){
         // Redirect to payment, if amount is more than zero
         if (!empty($make_pay->amount)){
             header ("Location: ".$destination);
+        } else {
+            unset ($_SESSION['ref']);
         }
     }
 

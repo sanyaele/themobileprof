@@ -5,6 +5,7 @@ require_once ('includes/common.php');
 require_once ('includes/training.php');
 ///////////////////////////////////////
 use Training\coupon AS couponClass;
+use Training\getSeats AS getSeatNum;
 ///////////////////////////////////////
 // Set Course ID
 $_SESSION['course'] = 1;
@@ -17,7 +18,7 @@ if (!empty($_GET['day'])){
 } else {
   $day = "Monday";
 }
-$ddates = get_date_range($day, "March");
+$ddates = \get_date_range($day);
 
 ////////////////////////////////////////
 ////////////////////////////////////////
@@ -30,6 +31,9 @@ if (!empty($_SESSION['coupon'])){
   $coupon = $discount->get_coupon($link);
 }
 
+// Get number of remaining seats
+$seatsClass = new getSeatNum;
+$seats = maxSeats - intval($seatsClass->seats($link, $day, $ddates['my']));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -123,22 +127,35 @@ if (!empty($_SESSION['coupon'])){
       <h3 class="my-4">Curriculum Calendar for <strong><?php echo $ddates['my']; ?></strong></h3>
 
       <form action="process.php" method="post" target="pay_frame">
-        <div class="form-group">
-          Select your Preferred Training Days 
-          <select class="form-control form-control-lg bg-light" name="day" id="day">
-            <?php
-            if (!empty($day)){
-            ?>
-            <option value="<?php echo $day; ?>"><?php echo $day; ?>s</option>
-            <?php
-            }
-            ?>
-            <option value="Monday" onclick="window.open('mobile-business-training.php?day=Monday','_self')">Mondays</option>
-            <option value="Tuesday" onclick="window.open('mobile-business-training.php?day=Tuesday','_self')">Tuesdays</option>
-            <option value="Wednesday" onclick="window.open('mobile-business-training.php?day=Wednesday','_self')">Wednesdays</option>
-            <option value="Thursday" onclick="window.open('mobile-business-training.php?day=Thursday','_self')">Thurdays</option>
-            <option value="Friday" onclick="window.open('mobile-business-training.php?day=Friday','_self')">Fridays</option>
-          </select>
+        <div class="row">
+          <strong class="text-danger pl-4">* There are <span class="text-dark"><?php echo $seats; ?> seats available</span> in <span class="text-muted"><?php echo $ddates['my']; ?></span> for <span class="text-muted"><?php echo $day; ?></span> Classes</strong>
+        </div>
+        <div class="row mt-3 mb-5">
+          <div class="col-md-6 col-sm-6">
+            Select your Preferred Training Days 
+            <select class="form-control form-control-lg bg-primary text-white" name="day" id="day">
+              <option value="Monday" onclick="window.open('mobile-business-training.php?day=Monday','_self')" <?php echo ($day == "Monday") ? "selected" : ""; ?>>Mondays</option>
+              <option value="Tuesday" onclick="window.open('mobile-business-training.php?day=Tuesday','_self')" <?php echo ($day == "Tuesday") ? "selected" : ""; ?>>Tuesdays</option>
+              <option value="Wednesday" onclick="window.open('mobile-business-training.php?day=Wednesday','_self')" <?php echo ($day == "Wednesday") ? "selected" : ""; ?>>Wednesdays</option>
+              <option value="Thursday" onclick="window.open('mobile-business-training.php?day=Thursday','_self')" <?php echo ($day == "Thursday") ? "selected" : ""; ?>>Thurdays</option>
+              <option value="Friday" onclick="window.open('mobile-business-training.php?day=Friday','_self')" <?php echo ($day == "Friday") ? "selected" : ""; ?>>Fridays</option>
+            </select>
+          </div>
+          <div class="col-md-6 col-sm-6">
+              Select how many seats you want to pay for
+              <select name="seats" id="seats" class="form-control form-control-lg bg-primary text-white">
+                <?php
+                if (!empty($seats)){
+                  echo "<option value=\"1\">1 Seat</option>";
+
+                  for ($i=2; $seats >= $i; $i++){
+                    echo "<option value=\"$i\">$i Seats</option>";
+                  }
+                }
+                ?>
+              </select>
+          </div>
+          
         </div>
         <div class="row">
           <div class="cal-date col-md-5 col-sm-6">
@@ -279,6 +296,7 @@ if (!empty($_SESSION['coupon'])){
             <div class="form-group">
               <input type="hidden" name="for" id="for" value="Mobile Productivity Training">
               <input type="hidden" name="pg" id="pg" value="mobile-business-training">
+              <input type="hidden" name="monthYear" id="monthYear" value="<?php echo $ddates['my']; ?>">
               <input type="hidden" name="coupon" id="coupon" value="<?php echo $_SESSION['coupon']; ?>">
               <button type="submit" class="btn btn-primary form-control" data-toggle="modal" data-target="#payModal">Register for Class</button>
             </div>

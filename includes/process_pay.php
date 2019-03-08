@@ -24,8 +24,10 @@ class process {
     private $unit_cost = 0;
     private $total_cost = 0;
     public $amount = 0;
+    private $seats = 1;
 
-    private $day;
+    private $day = "monday";
+    private $mY;
     private $week1 = 0;
     private $week2 = 0;
     private $week3 = 0;
@@ -38,9 +40,18 @@ class process {
         global $link;
         $this->dblink = $link;
 
-        if (empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['email']) || empty($_POST['mobile'])){
-            echo "Error: You need to fill your name and contact information before you can proceed";
+        if (empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['email']) || empty($_POST['mobile']) || empty($_POST['day']) || empty($_POST['monthYear']) || (empty($_POST['week1']) && empty($_POST['week2']) && empty($_POST['week3']) && empty($_POST['week4'])) ){
+            echo "Error: You need to fill your name, contact and at least one week before you can proceed";
+            exit();
             return FALSE;
+        }
+
+        if (empty($_POST['seats'])){
+            echo "There are no available seats for ".$_POST['day'];
+            exit();
+            return FALSE;
+        } else {
+            $this->seats = addslash($_POST['seats']);
         }
 
         $this->course = $_SESSION['course'];
@@ -55,9 +66,12 @@ class process {
         $this->email = addslash ($_POST['email']);
         $this->mobile = addslash ($_POST['mobile']);
         $this->for = addslash($_POST['for']);
+        
 
 
         $this->day = addslash($_POST['day']);
+        $this->mY = addslash($_POST['monthYear']);
+
 
         if (!empty($_POST['week1'])){
             $this->week1 = 1;
@@ -93,7 +107,8 @@ class process {
         }
         
         
-        
+        // Multiple by number of Seats
+        $this->amount = $this->amount * $this->seats;
         
 
         // Create Transaction Reference
@@ -149,6 +164,9 @@ class process {
         $paid
         `course_id` = '$this->course',
         `coupon_name` = '$coupon',
+        `seats` = '$this->seats',
+        `class_day` = '$this->day',
+        `month_year` = '$this->mY',
         `week1` = '$this->week1',
         `week2` = '$this->week2',
         `week3` = '$this->week3',
