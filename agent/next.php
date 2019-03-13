@@ -16,7 +16,7 @@ class agent_register {
             // redirect to regitration page
             header("Location: https://www.seonigeria.com/mobile-business-training.php?agent=".$_SESSION['email']."&coupon=".$this->coupon);
         } else {
-            echo "Copy and Send the user this URL: https://www.seonigeria.com/a/?a=".$_SESSION['code']."&c=".$this->coupon;
+            echo "Copy and Send the user this Link: <strong>https://www.seonigeria.com/a/?a=".$_SESSION['code']."&c=".$this->coupon."</strong>";
             exit();
         }
     }

@@ -58,7 +58,7 @@ class process {
         }
 
         if (!empty($_SESSION['agent'])){
-            $this->$agent = $_SESSION['agent'];
+            $this->agent = $_SESSION['agent'];
         }
 
         $this->course = $_SESSION['course'];
@@ -195,7 +195,7 @@ class process {
         "<a href='".$this->pay_url."'>Pay Now!</a>"."\n\n".
         "Here are the details:\n\n 
         Name: ".$this->firstname." ".$this->lastname." \n\n
-        Phone: ".$this->telephone."\n\n 
+        Phone: ".$this->mobile."\n\n 
         Amount: ".$this->amount."\n\n 
         Course: ".$this->course_name."\n\n
         Number of Seats: ".$this->seats."\n\n".
@@ -286,7 +286,7 @@ class verify {
 
     function send_user_email (){
         
-        $to = $this->details[email]; 
+        $to = $this->details['email']; 
         $email_subject = "Payment for  ".$this->details['course_name'];
         $email_body = "We have received your registration for ".$this->details['course_name']."\n\n".
         "Here are the details:\n\n 

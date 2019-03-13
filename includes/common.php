@@ -77,6 +77,7 @@ function get_date_range ($day="Monday", $month=""){
 }
 
 function get_agent ($db, $email="", $code=""){
+	echo "Seen";
 	if (!empty($email)){
 		$wh = "`email` = '".addslash($email)."'";
 	} else if (!empty($code)){
@@ -87,6 +88,7 @@ function get_agent ($db, $email="", $code=""){
 	
 
 	$sql = "SELECT `id` FROM `agents` WHERE $wh LIMIT 1";
+	echo $sql;
 	$result = @mysqli_query($db, $sql);
 	$row = @mysqli_fetch_assoc($result);
 	if (!empty($row['id'])){

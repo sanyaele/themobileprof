@@ -32,7 +32,7 @@ if (empty($_SESSION['ref'])){
             // If an agent is filling this form
             if (!empty($_SESSION['agent'])){
                 // Display Payment URL, and send user payment information
-                echo "Payment Link: ".$destination;
+                echo "Payment Link: <strong>".$destination."</strong>";
                 exit();
             } else {
                 header ("Location: ".$destination); // Redirect user to payment
