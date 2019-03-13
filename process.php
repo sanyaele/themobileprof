@@ -27,9 +27,17 @@ if (empty($_SESSION['ref'])){
         // Add to database
         $make_pay->add_db($link, $paid); 
 
-        // Redirect to payment, if amount is more than zero
+        // Proceed to payment, if amount is more than zero
         if (!empty($make_pay->amount)){
-            header ("Location: ".$destination);
+            // If an agent is filling this form
+            if (!empty($_SESSION['agent'])){
+                // Display Payment URL, and send user payment information
+                echo "Payment Link: ".$destination;
+                exit();
+            } else {
+                header ("Location: ".$destination); // Redirect user to payment
+            }
+            
         } else {
             unset ($_SESSION['ref']);
         }

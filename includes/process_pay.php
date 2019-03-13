@@ -19,6 +19,7 @@ class process {
     private $for;
     
     private $course;
+    private $course_name;
     private $coupon = array();
 
     private $unit_cost = 0;
@@ -33,8 +34,10 @@ class process {
     private $week3 = 0;
     private $week4 = 0;
 
+    private $agent;
     private $ref;
     private $callback = "https://www.seonigeria.com/process.php";
+    private $pay_url;
 
     function __construct(){
         global $link;
@@ -52,6 +55,10 @@ class process {
             return FALSE;
         } else {
             $this->seats = addslash($_POST['seats']);
+        }
+
+        if (!empty($_SESSION['agent'])){
+            $this->$agent = $_SESSION['agent'];
         }
 
         $this->course = $_SESSION['course'];
@@ -112,13 +119,14 @@ class process {
         
 
         // Create Transaction Reference
-        if ($_POST['pg'] == 'pay_training'){
-            $this->ref = "Business-Training-".rand(1000,9999);
-        } elseif ($_POST['pg'] == 'pay_payment') {
-            $this->ref = "Payment-".rand(1000,9999);
-        } else {
-            $this->ref = "Webpay-".rand(1000,9999);
-        }
+        $this->ref = str_replace(' ', '', $this->course_name).rand(1000,9999);
+        // if ($_POST['pg'] == 'pay_training'){
+            
+        // } elseif ($_POST['pg'] == 'pay_payment') {
+        //     $this->ref = "Payment-".rand(1000,9999);
+        // } else {
+        //     $this->ref = "Webpay-".rand(1000,9999);
+        // }
 
         $_SESSION['ref'] = $this->ref; //Store ref number in session
         $_SESSION['email'] = $this->email; //Store email in session
@@ -130,14 +138,10 @@ class process {
         $tranx = curl_post('https://api.paystack.co/transaction/initialize', $data);
 
         if (!empty($tranx['data']['authorization_url'])){
+            $this->pay_url = $tranx['data']['authorization_url'];
+            $this->send_payment_email();
             return $tranx['data']['authorization_url'];
 
-            // if($this->add_db($this->dblink)){
-            //         header("Location: ".$tranx['data']['authorization_url']);
-            // } else {
-            //     throw new MyException("Couldn't add details to database");
-            // }
-            
         } else {
             throw new MyException("Couldn't Initialize Transaction");
         }
@@ -148,6 +152,7 @@ class process {
         $result = @mysqli_query($db, $sql);
         $row = @mysqli_fetch_assoc($result);
 
+        $this->course_name = $row['name'];
         $this->unit_cost = $row['unit_cost']*100;
         $this->total_cost = $row['total_cost']*100;
     }
@@ -171,10 +176,38 @@ class process {
         `week2` = '$this->week2',
         `week3` = '$this->week3',
         `week4` = '$this->week4',
-        `ref` = '$this->ref'";
+        `agent_id` = '$this->agent',
+        `ref` = '$this->ref',
+        `pay_url` = '$this->pay_url'";
         if (@mysqli_query($link, $sql)){
             return TRUE;
             
+        } else {
+            return FALSE;
+        }
+    }
+
+    function send_payment_email(){
+
+        $to = $this->email; 
+        $email_subject = "Confirm registration for ".$this->course_name;
+        $email_body = "This is to confirm your registration for ".$this->course_name."\n\n".
+        "<a href='".$this->pay_url."'>Pay Now!</a>"."\n\n".
+        "Here are the details:\n\n 
+        Name: ".$this->firstname." ".$this->lastname." \n\n
+        Phone: ".$this->telephone."\n\n 
+        Amount: ".$this->amount."\n\n 
+        Course: ".$this->course_name."\n\n
+        Number of Seats: ".$this->seats."\n\n".
+        "Kindly click $this->pay_url to pay for your registration as soon as possible. Please note that if the class fills up (10 persons per class) before your payment, your registration will be forfeited and your money refunded."."\n\n".
+        "Thank you."."\n\n". 
+        "The SEONigeria Team";
+        $headers = "From: noreply@seonigeria.com\n"; 
+        $headers .= "Reply-To: contact@seonigeria.com";   
+        
+        if (mail($to,$email_subject,$email_body,$headers)){
+
+            return TRUE;
         } else {
             return FALSE;
         }
@@ -225,7 +258,7 @@ class verify {
         // Create the email and send the message
         
         
-        $to = 'contact@seonigeria.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+        $to = 'contact@seonigeria.com'; 
         $email_subject = "Payment for  ".$this->details['course_name'];
         $email_body = "Someone just sent payment for ".$this->details['course_name']."\n\n".
         "Here are the details:\n\n 
@@ -253,7 +286,7 @@ class verify {
 
     function send_user_email (){
         
-        $to = $this->details[email]; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+        $to = $this->details[email]; 
         $email_subject = "Payment for  ".$this->details['course_name'];
         $email_body = "We have received your registration for ".$this->details['course_name']."\n\n".
         "Here are the details:\n\n 

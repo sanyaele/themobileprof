@@ -76,6 +76,26 @@ function get_date_range ($day="Monday", $month=""){
     return $dates;
 }
 
+function get_agent ($db, $email="", $code=""){
+	if (!empty($email)){
+		$wh = "`email` = '".addslash($email)."'";
+	} else if (!empty($code)){
+		$wh = "`code` = '".addslash($code)."'";
+	} else {
+		return FALSE;
+	}
+	
+
+	$sql = "SELECT `id` FROM `agents` WHERE $wh LIMIT 1";
+	$result = @mysqli_query($db, $sql);
+	$row = @mysqli_fetch_assoc($result);
+	if (!empty($row['id'])){
+		return $row['id'];
+	} else {
+		return FALSE;
+	}
+}
+
 ///////////////////////////////
 function error($msg) { // Alert error mesage
    echo "

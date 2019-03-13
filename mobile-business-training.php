@@ -21,6 +21,17 @@ if (!empty($_GET['day'])){
 $ddates = \get_date_range($day);
 
 ////////////////////////////////////////
+// If an agent is registering for a user
+if (!empty($_GET['agent'])){
+  if ($agent_id = get_agent($link, $_GET['agent'])){
+    $_SESSION['agent'] = $agent_id;
+  }
+} else if (!empty($_GET['ref'])){
+  if ($agent_id = get_agent($link, "", $_GET['ref'])){
+    $_SESSION['agent'] = $agent_id;
+  }
+}
+
 ////////////////////////////////////////
 if (!empty($_GET['coupon'])){
   $_SESSION['coupon'] = $_GET['coupon'];
@@ -30,7 +41,7 @@ if (!empty($_SESSION['coupon'])){
   $discount = new couponClass($_SESSION['coupon']);
   $coupon = $discount->get_coupon($link);
 }
-
+////////////////////////////////////////
 // Get number of remaining seats
 $seatsClass = new getSeatNum;
 $seats = maxSeats - intval($seatsClass->seats($link, $day, $ddates['my']));
