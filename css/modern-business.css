@@ -128,3 +128,10 @@ iframe {
   overflow: scroll;
   font-family: 'Raleway', sans-serif !important;
 }
+.hidlist li {
+  list-style: none;
+  padding-left: 0;
+}
+.hidlist li i{
+  margin-right: 5px;
+}

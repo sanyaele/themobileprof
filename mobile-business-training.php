@@ -77,6 +77,9 @@ if ($seats > $coupon['seats']){
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Font Awesome CSS -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
@@ -142,16 +145,18 @@ if ($seats > $coupon['seats']){
           <img class="img-fluid" src="assets/website-design.png" alt="Mobile Productivity Training">
 
           <div class="row">
-            <h2>Benefits of the Course</h2>
-            <ul>
-              <li>Learn how to edit Documents on your Mobile phone using Microsoft Word or Google Docs</li>
-              <li>Collaborate with your Team mates on office documents from your mobile devices anywhere you are</li>
-              <li>Find productive use of your time in Lagos traffic</li>
-              <li>Be ready for business emergencies, have the tools required to respond to your customers requests immediately</li>
-              <li>Learn how to work with Cloud computing to make documents easy to share and backup</li>
-              <li>Learn how to develop and share Presentations from your phone even while on your way to the meeting</li>
-              <li>Master Excel and how to work with Spreadsheets from your Smartphone</li>
-              <li>Convert your documents to PDF on the go</li>
+            <h2 class="ml-5">Benefits of the Course</h2>
+            <ul class="hidlist">
+              <li><i class="fa fa-check-square text-primary"></i>Learn how to edit Documents on your Mobile phone using Microsoft Word or Google Docs</li>
+              <li><i class="fa fa-check-square text-primary"></i>
+Collaborate with your Team mates on office documents from your mobile devices anywhere you are</li>
+              <li><i class="fa fa-check-square text-primary"></i>Find productive use of your time in Lagos traffic</li>
+              <li><i class="fa fa-check-square text-primary"></i>Be ready for business emergencies, have the tools required to respond to your customers requests immediately</li>
+              <li><i class="fa fa-check-square text-primary"></i>Learn how to work with Cloud computing to make documents easy to share and backup</li>
+              <li><i class="fa fa-check-square text-primary"></i>Develop and share Presentations from your phone even while on your way to the meeting</li>
+              <li><i class="fa fa-check-square text-primary"></i>Master Excel and how to work with Spreadsheets from your Smartphone</li>
+              <li><i class="fa fa-check-square text-primary"></i>Convert your documents to PDF on the go</li>
+              <li><i class="fa fa-check-square text-primary"></i>And so many other benefits of using your Mobile phone efficiently with Cloud services</li>
             </ul>
           </div>
 
