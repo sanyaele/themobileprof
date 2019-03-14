@@ -34,7 +34,7 @@ class process {
     private $week3 = 0;
     private $week4 = 0;
 
-    private $agent;
+    private $agent = 0;
     public $ref;
     private $callback = "https://www.seonigeria.com/process.php";
     private $pay_url;
@@ -128,7 +128,7 @@ class process {
     }
 
     function process_pay(){
-        $data = array('email' => $this->email, 'amount' => $this->amount, "reference" => $this->ref, "callback_url" => $this->callback);
+        $data = array('email' => $this->email, 'amount' => $this->amount*100, "reference" => $this->ref, "callback_url" => $this->callback);
 
         $tranx = curl_post('https://api.paystack.co/transaction/initialize', $data);
 
@@ -148,8 +148,8 @@ class process {
         $row = @mysqli_fetch_assoc($result);
 
         $this->course_name = $row['name'];
-        $this->unit_cost = $row['unit_cost']*100;
-        $this->total_cost = $row['total_cost']*100;
+        $this->unit_cost = $row['unit_cost'];
+        $this->total_cost = $row['total_cost'];
     }
     
     function add_db ($link,$paid=""){
@@ -174,7 +174,8 @@ class process {
         `agent_id` = '$this->agent',
         `ref` = '$this->ref',
         `pay_url` = '$this->pay_url'";
-        if (@mysqli_query($link, $sql)){
+        echo $sql;
+        if (mysqli_query($link, $sql)){
             return TRUE;
             
         } else {

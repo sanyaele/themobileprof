@@ -1,9 +1,9 @@
 <?php // common.php
 session_start();
 ///// Disable below in production
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 /// CONSTANTS /////
 require_once 'keys.php';
 //////////////////////////////////////////////////////////

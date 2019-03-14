@@ -23,7 +23,7 @@ $_SESSION['ref'] = $make_pay->ref; //Store ref number in session
 
 try {
     // Process Paystack payment if amount is more than 0
-    if ($make_pay->amount == 0){
+    if ($make_pay->amount > 0){
         $destination = $make_pay->process_pay();
     }
 } catch (\Throwable $th) {
@@ -33,7 +33,7 @@ try {
 } finally {
     
     // Proceed to payment, if amount is more than zero
-    if ($make_pay->amount == 0){
+    if ($make_pay->amount > 0){
         $make_pay->add_db($link); // Add to DB
 
         // If it is not an agent, filling this form
@@ -45,6 +45,7 @@ try {
         
     } else { // If the course is free
         $make_pay->add_db($link, "`status` = 'paid',"); 
+        echo "Seen";
         $make_pay->send_payment_email();
 
     }
@@ -84,6 +85,8 @@ try {
             <div>
               Your Free registration was successful <a href="mobile-business-training.php" class="btn btn-info" target="_top">Continue</a>
             </div>';
+        } else {
+            echo "seen";
         }
         ?>
     </div>
