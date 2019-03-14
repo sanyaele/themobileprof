@@ -14,7 +14,7 @@ class process {
     
     private $firstname;
     private $lastname;
-    private $email;
+    public $email;
     private $mobile;
     private $for;
     
@@ -35,7 +35,7 @@ class process {
     private $week4 = 0;
 
     private $agent;
-    private $ref;
+    public $ref;
     private $callback = "https://www.seonigeria.com/process.php";
     private $pay_url;
 
@@ -120,16 +120,11 @@ class process {
 
         // Create Transaction Reference
         $this->ref = str_replace(' ', '', $this->course_name).rand(1000,9999);
-        // if ($_POST['pg'] == 'pay_training'){
-            
-        // } elseif ($_POST['pg'] == 'pay_payment') {
-        //     $this->ref = "Payment-".rand(1000,9999);
-        // } else {
-        //     $this->ref = "Webpay-".rand(1000,9999);
-        // }
+        
+        // Recreate call back url with transaction reference
+        $this->callback .= "?ref=".$this->ref;
 
-        $_SESSION['ref'] = $this->ref; //Store ref number in session
-        $_SESSION['email'] = $this->email; //Store email in session
+        
     }
 
     function process_pay(){
@@ -139,7 +134,7 @@ class process {
 
         if (!empty($tranx['data']['authorization_url'])){
             $this->pay_url = $tranx['data']['authorization_url'];
-            $this->send_payment_email();
+            
             return $tranx['data']['authorization_url'];
 
         } else {
@@ -217,17 +212,18 @@ class process {
 
 class verify {
     private $dblink;
+    private $ref;
     private $details = array();
 
-    function __construct(){
+    function __construct($ref){
         global $link;
         $this->dblink = $link;
 
-        
+        $this->ref = \addslash($ref);
     }
 
     function confirm (){
-        $url = 'https://api.paystack.co/transaction/verify/'.$_SESSION['ref'];
+        $url = 'https://api.paystack.co/transaction/verify/'.$this->ref;
         $tranx = curl_get ($url);
 
         if (!empty($tranx['data']['status'])){
@@ -245,7 +241,7 @@ class verify {
         $sql = "UPDATE `registration` SET
         `status` = 'paid'
         WHERE 
-        `ref` = '".$_SESSION['ref']."'
+        `ref` = '$this->ref'
         LIMIT 1";
         if (@mysqli_query($db, $sql)){
             return TRUE;
@@ -311,7 +307,7 @@ class verify {
     function get_details ($db){
         $sql = "SELECT `registration`.*, `courses`.`name` AS course_name
         FROM `registration`, `courses`
-        WHERE `registration`.`email` = '".$_SESSION['email']."'
+        WHERE `registration`.`ref` = '$this->ref'
         AND `registration`.`course_id` = `courses`.`id`
         LIMIT 1";
         $result = @mysqli_query($db, $sql);

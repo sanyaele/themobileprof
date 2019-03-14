@@ -122,3 +122,9 @@ iframe {
   width:100%;
   height:500px;
 }
+.stories .card-body {
+  height: 200px;
+  font-size: 14px;
+  overflow: scroll;
+  font-family: 'Raleway', sans-serif !important;
+}
