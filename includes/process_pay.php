@@ -36,7 +36,7 @@ class process {
 
     private $agent = 0;
     public $ref;
-    private $callback = "https://www.seonigeria.com/process.php";
+    private $callback = "https://www.seonigeria.com/confirm.php";
     private $pay_url;
 
     function __construct(){
@@ -226,6 +226,7 @@ class verify {
     function confirm (){
         $url = 'https://api.paystack.co/transaction/verify/'.$this->ref;
         $tranx = curl_get ($url);
+        // print_r ($tranx);
 
         if (!empty($tranx['data']['status'])){
             $this->details = $this->get_details($this->dblink); // Get registration details

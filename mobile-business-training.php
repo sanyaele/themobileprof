@@ -48,7 +48,7 @@ $seatsClass = new getSeatNum;
 $seats = maxSeats - intval($seatsClass->seats($link, $day, $ddates['my']));
 
 // Force maximum number of seats if coupon covers less seats
-if ($seats > $coupon['seats']){
+if (!empty($coupon['seats']) && $seats > $coupon['seats']){
   $seats = $coupon['seats'];
 }
 ?>
