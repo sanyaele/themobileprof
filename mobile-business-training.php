@@ -165,7 +165,7 @@ Collaborate with your Team mates on office documents from your mobile devices an
 
       <form action="process.php" method="post" target="pay_frame">
         <div class="row">
-          <strong class="text-danger pl-4">* There are <span class="text-dark"><?php echo $seats; ?> seats available</span> in <span class="text-muted"><?php echo $ddates['my']; ?></span> for <span class="text-muted"><?php echo $day; ?></span> Classes</strong>
+          <strong class="text-danger pl-4">* <span class="text-dark"><?php echo $seats; ?> seat(s) available</span> in <span class="text-muted"><?php echo $ddates['my']; ?></span> for <span class="text-muted"><?php echo $day; ?></span> Classes</strong>
         </div>
         <div class="row mt-3 mb-5">
           <div class="col-md-6 col-sm-6">

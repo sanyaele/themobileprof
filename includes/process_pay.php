@@ -174,7 +174,7 @@ class process {
         `agent_id` = '$this->agent',
         `ref` = '$this->ref',
         `pay_url` = '$this->pay_url'";
-        echo $sql;
+        //echo $sql;
         if (mysqli_query($link, $sql)){
             return TRUE;
             

@@ -34,7 +34,10 @@ try {
     
     // Proceed to payment, if amount is more than zero
     if ($make_pay->amount > 0){
-        $make_pay->add_db($link); // Add to DB
+        if (!$make_pay->add_db($link)){ // Add to DB
+            echo "There is already a similar registration with this coupon code. Kindly try without a coupon or send us a mail at contact@seonigeria.com for further enquiries. Thank you.";
+            exit();
+        }
 
         // If it is not an agent, filling this form
         if (empty($_SESSION['agent'])){
@@ -45,7 +48,7 @@ try {
         
     } else { // If the course is free
         $make_pay->add_db($link, "`status` = 'paid',"); 
-        echo "Seen";
+        //echo "Seen";
         $make_pay->send_payment_email();
 
     }
