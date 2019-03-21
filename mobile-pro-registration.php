@@ -133,7 +133,7 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
             </div>
             <div class="row">
                 <div class="cal-date col-6">
-                    <div><input type="checkbox" name="week1" id="week1" value="week1" class="training_check" <?php echo !empty($coupon['week1']) ? "checked" : ""; ?>>Week 1</div>
+                    <div><input type="checkbox" name="week1" id="week1" value="week1" class="training_check" <?php echo !empty($coupon['week1']) ? "checked" : ""; ?>>I'm Interested</div>
                     
                     <p><?php echo $ddates['first']; ?></p>
                     <?php
@@ -151,7 +151,7 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
                 </div>
         
                 <div class="cal-details col-6">
-                    <div class="text-info">Documents:</div>
+                    <div class="text-info"><strong>Documents:</strong> Covers office documents creation and editing using Google Docs / Microsoft Word and Working with PDFs</div>
                     <ul>
                       <li>Microsoft Word</li>
                       <li>Google Docs</li>
@@ -164,7 +164,7 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
               <div class="row">
 
                 <div class="cal-date col-6">
-                    <div><input type="checkbox" name="week2" id="week2" value="week2" class="training_check" <?php echo !empty($coupon['week2']) ? "checked" : ""; ?>>Week 2</div>
+                    <div><input type="checkbox" name="week2" id="week2" value="week2" class="training_check" <?php echo !empty($coupon['week2']) ? "checked" : ""; ?>>I'm Interested</div>
                     <p><?php echo $ddates['second'];?></p>
                     <?php
                       if (!empty($coupon['week2'])){
@@ -181,7 +181,7 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
                 </div>
         
                 <div class="cal-details col-6">
-                    <div class="text-info">Spreadsheets:</div>
+                    <div class="text-info"><strong>Spreadsheets:</strong> Explains how to use Excel and Google Sheet to work with various Spreadsheets and Charts</div>
                     <ul>
                       <li>Microsoft Excel</li>
                       <li>Google Sheets </li>
@@ -194,7 +194,7 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
               <div class="row">
 
                 <div class="cal-date col-6">
-                    <div><input type="checkbox" name="week3" id="week3" value="week3" class="training_check" <?php echo !empty($coupon['week3']) ? "checked" : ""; ?>>Week 3</div>
+                    <div><input type="checkbox" name="week3" id="week3" value="week3" class="training_check" <?php echo !empty($coupon['week3']) ? "checked" : ""; ?>>I'm Interested</div>
                     <p><?php echo $ddates['third'];?></p>
                     <?php
                       if (!empty($coupon['week3'])){
@@ -211,7 +211,7 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
                 </div>
         
                 <div class="cal-details col-6">
-                    <div class="text-info">Presentations:</div>
+                    <div class="text-info"><strong>Presentations:</strong> Discusses how to create captivating Presentations and Demos on Powerpoint and Google Slides</div>
                     <ul>
                       <li>Microsoft Powerpoint</li>
                       <li>Google Slides</li>
@@ -224,7 +224,7 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
               <div class="row">
 
                 <div class="cal-date col-6">
-                    <div><input type="checkbox" name="week4" id="week4" value="week4" class="training_check" <?php echo !empty($coupon['week4']) ? "checked" : ""; ?>>Week 4</div>
+                    <div><input type="checkbox" name="week4" id="week4" value="week4" class="training_check" <?php echo !empty($coupon['week4']) ? "checked" : ""; ?>>I'm Interested</div>
                     <p><?php echo $ddates['fourth'];?></p>
                     <?php
                       if (!empty($coupon['week4'])){
@@ -241,14 +241,13 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
                 </div>
         
                 <div class="cal-details col-6">
-                    <div class="text-info">Cloud Storage & File Transfer</div>
+                    <div class="text-info"><strong>Cloud Storage & Document Sharing:</strong> Focuses on how teams can work on the same documents at the same time irrespective of their current location</div>
                     <ul>
-                      <li>Google Drive Collaboration</li>
+                      <li>Google Drive</li>
                       <li>DropBox</li>
                       <li>Microsoft OneBox</li>
 
-                      <li>File Transfer</li>
-                      <li>PDF Management</li>
+                      <li>File Sharing</li>
                     </ul>
                 </div>
         

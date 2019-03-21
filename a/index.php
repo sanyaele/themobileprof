@@ -26,7 +26,7 @@ if (!empty($_GET['c'])){
 
     gtag('config', 'UA-7718160-1');
     </script>
-    <meta http-equiv="refresh" content="3; url=<?php echo "https://www.seonigeria.com/mobile-professional.php?ref=".$a.$c; ?>">
+    <meta http-equiv="refresh" content="2; url=<?php echo "https://www.seonigeria.com/mobile-professional.php?ref=".$a.$c; ?>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
