@@ -127,7 +127,7 @@
 
             <div class="course bg-white h-100 align-self-stretch">
               <figure class="m-0">
-                <a href="single.php?service=mobiledev"><img src="images/phonedev.png" alt="Image" class="img-fluid"></a>
+                <a href="single.php?service=developers"><img src="images/phonedev.png" alt="Image" class="img-fluid"></a>
               </figure>
               <div class="course-inner-text py-4 px-4">
 		      <!--<span class="course-price">$99</span>-->

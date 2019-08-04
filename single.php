@@ -79,7 +79,7 @@
               <div class="row justify-content-center align-items-center text-center">
                 <div class="col-lg-6">
                   <h1 data-aos="fade-up" data-aos-delay="0"><?php echo"Training and Softwares" ?> </h1>
-                  <p data-aos="fade-up" data-aos-delay="100">4 Lessons / 12 Week &bullet; 2,193 students &bullet; <a href="#" class="text-white">6 comments</a></p>
+                  <p data-aos="fade-up" data-aos-delay="100">4 Lessons / 12 Week &bullet; 2,193 students &bullet; <a href="#" class="text-white">0 comments</a></p>
                 </div>
 
                 
@@ -96,7 +96,8 @@
         <div class="row">
           <div class="col-lg-8 mb-5">
           <?php
-           if($_GET['service'] == "mobiledev"){
+          if(!isset($_GET['service']) || $_GET['service'] == "developers" || ($_GET['service'] != "developers" || $_GET['service'] != "business" ) {
+
            $courseTitle = "Code on Smartphones";
            $courseDiscuss = array("<p>You will get to know  all the neccesary apps, and how to configure them properly for a seemless web app development , in a mobile enviroment.</p>","<p>You will get to build a funtional web app, and deploy it, all from your smart phone, with guidiance from our learning facilitators and videos</p>");
            $images = array("mobile-phone.jpg","keyboard.png");
@@ -121,8 +122,17 @@
             </div>
 
             <div class="pt-5">
-              <h3 class="mb-5">6 Comments</h3>
-              <ul class="comment-list">
+            <h3 class="mb-5">Register For Class</h3>
+            <?php
+            if(isset($_GET['service']) && $_GET['service'] == "business")
+            include"office-training-form.php"; 
+            ?>
+
+
+
+
+              <!--<h3 class="mb-5">0 Comments</h3>-->
+              <!--<ul class="comment-list">
                 <li class="comment">
                   <div class="vcard bio">
                     <img src="images/person_1.jpg" alt="Image placeholder">
@@ -148,11 +158,11 @@
                     <p><a href="#" class="reply">Reply</a></p>
                   </div>
                 </li>
-              </ul>
+              </ul>-->
               <!-- END comment-list -->
               
-              <div class="comment-form-wrap pt-5">
-                <h3 class="mb-5">Leave a comment</h3>
+              <!--<div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">Register for Class</h3>
                 <form action="#" class="p-5 bg-light">
                   <div class="form-group">
                     <label for="name">Name *</label>
@@ -163,20 +173,15 @@
                     <input type="email" class="form-control" id="email">
                   </div>
                   <div class="form-group">
-                    <label for="website">Website</label>
-                    <input type="url" class="form-control" id="website">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                    <label for="website">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone">
                   </div>
                   <div class="form-group">
-                    <input type="submit" value="Post Comment" class="btn btn-primary">
+                    <input type="submit" value="Register" class="btn btn-primary">
                   </div>
 
                 </form>
-              </div>
+              </div>-->
             </div>
 
 
