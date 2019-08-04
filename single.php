@@ -44,13 +44,13 @@
       
       <div class="container-fluid">
         <div class="d-flex align-items-center">
-          <div class="site-logo mr-auto w-25"><a href="index.html">OneSchool</a></div>
+          <div class="site-logo mr-auto w-25"><a href="index.html">MobileProf</a></div>
 
           <div class="mx-auto text-center">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
                 <li><a href="#home-section" class="nav-link">Home</a></li>
-                <li><a href="#courses-section" class="nav-link">Courses</a></li>
+                <li><a href="#courses-section" class="nav-link">Services</a></li>
                 <li><a href="#programs-section" class="nav-link">Programs</a></li>
                 <li><a href="#teachers-section" class="nav-link">Teachers</a></li>
               </ul>
@@ -78,7 +78,7 @@
             <div class="col-12">
               <div class="row justify-content-center align-items-center text-center">
                 <div class="col-lg-6">
-                  <h1 data-aos="fade-up" data-aos-delay="0">Logo Design Course</h1>
+                  <h1 data-aos="fade-up" data-aos-delay="0"><?php echo"Training and Softwares" ?> </h1>
                   <p data-aos="fade-up" data-aos-delay="100">4 Lessons / 12 Week &bullet; 2,193 students &bullet; <a href="#" class="text-white">6 comments</a></p>
                 </div>
 
@@ -95,27 +95,29 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mb-5">
-
+          <?php
+           if($_GET['service'] == "mobiledev"){
+           $courseTitle = "Code on Smartphones";
+           $courseDiscuss = array("<p>You will get to know  all the neccesary apps, and how to configure them properly for a seemless web app development , in a mobile enviroment.</p>","<p>You will get to build a funtional web app, and deploy it, all from your smart phone, with guidiance from our learning facilitators and videos</p>");
+           $images = array("mobile-phone.jpg","keyboard.png");
+          }
+            ?>
             <div class="mb-5">
-              <h3 class="text-black">Course Description</h3>
+              <h3 class="text-black"><?php echo $courseTitle; ?> </h3>
               <p class="mb-4">
                 <strong class="text-black mr-3">Schedule: </strong> MWF 9:30 - 11:00
               </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim eum iure voluptatum provident natus, deleniti alias corporis dolorem architecto eligendi consequatur, veniam ratione qui adipisci, doloremque aspernatur? Debitis, quia, praesentium.</p>
-              <p>Molestias sit temporibus ullam voluptatem quibusdam. Accusamus labore perspiciatis similique veritatis ipsum iure quas. Nulla perspiciatis unde eveniet nihil, nesciunt repellat maxime ab libero minima voluptas dolore repudiandae adipisci. Cumque!</p>
-              <p>Enim harum voluptatem, itaque in illum quas temporibus tempore sit tempora quam atque eveniet, non aspernatur dignissimos aliquid praesentium exercitationem delectus, maxime velit saepe! Qui asperiores iure reprehenderit ad voluptas!</p>
+              <?php echo $courseDiscuss[0]; ?>
               <div class="row mb-4">
                 <div class="col-md-6">
-                  <img src="images/img_1.jpg" alt="Image" class="img-fluid rounded">
+                  <img src="images/<?php echo $images[0]; ?>" alt="Image" class="img-fluid rounded">
                 </div>
                 <div class="col-md-6">
-                  <img src="images/img_2.jpg" alt="Image" class="img-fluid rounded">
+                  <img src="images/<?php echo $images[1]; ?>" alt="Image" class="img-fluid rounded">
                 </div>
               </div>
-              <p>Ipsam fuga fugiat vero repudiandae, tenetur a ullam, expedita perspiciatis dolores rem quibusdam numquam dicta sint unde repellat magni recusandae. Id, quibusdam, voluptatum. Amet mollitia ratione, illum animi quia ex?</p>
-              <p>Sint aut repudiandae, in amet nemo. Nobis labore id iure molestias reprehenderit quisquam illo quod cum dolorum aspernatur ut sequi, facere beatae, porro cupiditate magnam laborum laudantium laboriosam ab autem!</p>
-
-              <p class="mt-4"><a href="#" class="btn btn-primary">Admission</a></p>
+              <?php echo $courseDiscuss[1]; ?>
+              <p class="mt-4"><a href="#" class="btn btn-primary">Enroll</a></p>
             </div>
 
             <div class="pt-5">
@@ -133,60 +135,7 @@
                   </div>
                 </li>
 
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="images/person_1.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>Jean Doe</h3>
-                    <div class="meta">January 9, 2018 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-
-                  <ul class="children">
-                    <li class="comment">
-                      <div class="vcard bio">
-                        <img src="images/person_1.jpg" alt="Image placeholder">
-                      </div>
-                      <div class="comment-body">
-                        <h3>Jean Doe</h3>
-                        <div class="meta">January 9, 2018 at 2:21pm</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                        <p><a href="#" class="reply">Reply</a></p>
-                      </div>
-
-
-                      <ul class="children">
-                        <li class="comment">
-                          <div class="vcard bio">
-                            <img src="images/person_1.jpg" alt="Image placeholder">
-                          </div>
-                          <div class="comment-body">
-                            <h3>Jean Doe</h3>
-                            <div class="meta">January 9, 2018 at 2:21pm</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                            <p><a href="#" class="reply">Reply</a></p>
-                          </div>
-
-                            <ul class="children">
-                              <li class="comment">
-                                <div class="vcard bio">
-                                  <img src="images/person_1.jpg" alt="Image placeholder">
-                                </div>
-                                <div class="comment-body">
-                                  <h3>Jean Doe</h3>
-                                  <div class="meta">January 9, 2018 at 2:21pm</div>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                  <p><a href="#" class="reply">Reply</a></p>
-                                </div>
-                              </li>
-                            </ul>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
+                
 
                 <li class="comment">
                   <div class="vcard bio">
@@ -236,10 +185,10 @@
           <div class="col-lg-4 pl-lg-5">
 
             <div class="mb-5 text-center border rounded course-instructor">
-              <h3 class="mb-5 text-black text-uppercase h6 border-bottom pb-3">Course Instructor</h3>
+              <h3 class="mb-5 text-black text-uppercase h6 border-bottom pb-3">Instructor</h3>
               <div class="mb-4 text-center">
-                <img src="images/person_2.jpg" alt="Image" class="w-25 rounded-circle mb-4">  
-                <h3 class="h5 text-black mb-4">Christine Downeyy</h3>
+                <img src="images/ayaele.jpg" alt="Image" class="w-25 rounded-circle mb-4">  
+                <h3 class="h5 text-black mb-4">Samuel Ayaele</h3>
                 <p>Lorem ipsum dolor sit amet sectetur adipisicing elit. Ipsa porro expedita libero pariatur vero eos.</p>
               </div>
             </div>
@@ -249,132 +198,8 @@
       </div>
     </div>
 
-    <div class="site-section courses-title bg-dark" id="courses-section">
-      <div class="container">
-        <div class="row mb-5 justify-content-center">
-          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-            <h2 class="section-title">More Courses</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="site-section courses-entry-wrap"  data-aos="fade" data-aos-delay="100">
-      <div class="container">
-        <div class="row">
-
-          <div class="owl-carousel col-12 nonloop-block-14">
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_1.jpg" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-                <span class="course-price">$20</span>
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">Study Law of Physics</a></h3>
-                <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_2.jpg" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-                <span class="course-price">$99</span>
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">Logo Design Course</a></h3>
-                <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_3.jpg" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-                <span class="course-price">$99</span>
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">JS Programming Language</a></h3>
-                <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_4.jpg" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-                <span class="course-price">$20</span>
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">Study Law of Physics</a></h3>
-                <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_5.jpg" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-                <span class="course-price">$99</span>
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">Logo Design Course</a></h3>
-                <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_6.jpg" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-                <span class="course-price">$99</span>
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">JS Programming Language</a></h3>
-                <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-          </div>
-
-         
-
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-7 text-center">
-            <button class="customPrevBtn btn btn-primary m-1">Prev</button>
-            <button class="customNextBtn btn btn-primary m-1">Next</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    
+    
      
     <footer class="footer-section bg-light">
       <div class="container">
