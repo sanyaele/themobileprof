@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>OneSchool &mdash; Website by Colorlib</title>
+    <title>Mobile Profesionals &mdash; office 365 </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -79,7 +79,7 @@
               <div class="row align-items-center">
                 <div class="col-lg-6 mb-4">
                   <h1  data-aos="fade-up" data-aos-delay="100">Inspiring Africa one Smartphone at a time</h1>
-                  <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">Increase your productivity by using Mobile phones to it's full potential as mini portable computers that it is. </p>
+                  <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">Increase productivity by using your  Mobile phones to it's full potential as mini portable computers that it is. </p>
                   <p data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-primary py-3 px-5 btn-pill">sample</a></p>
 
                 </div>
@@ -115,7 +115,7 @@
       <div class="container">
         <div class="row mb-5 justify-content-center">
           <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-            <h2 class="section-title">Trainings</h2>
+	  <h2 class="section-title"><?php echo"Trainings/Softwares"; ?></h2>
           </div>
         </div>
       </div>
@@ -158,21 +158,21 @@
               </div>
             </div>
 
-            <!--<div class="course bg-white h-100 align-self-stretch">
+            <div class="course bg-white h-100 align-self-stretch">
               <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_3.jpg" alt="Image" class="img-fluid"></a>
+                <a href="course-single.html"><img src="images/office365.jpeg" alt="Image" class="img-fluid"></a>
               </figure>
               <div class="course-inner-text py-4 px-4">
-                <span class="course-price">$99</span>
+		      <!--<span class="course-price">$99</span>-->
                 <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">JS Programming Language</a></h3>
-                <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
+                <h3><a href="#">Office 365 Software</a></h3>
+                <p>Download, Install and learn how to use microsoft office 365 software, in and out of your workplace. </p>
               </div>
               <div class="d-flex border-top stats">
                 <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
                 <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
               </div>
-	    </div>-->
+	    </div>
 
 
 
@@ -450,7 +450,7 @@
 
             
             <h2 class="section-title mb-3">Message Us</h2>
-            <p class="mb-5">Natus totam voluptatibus animi aspernatur ducimus quas obcaecati mollitia quibusdam temporibus culpa dolore molestias blanditiis consequuntur sunt nisi.</p>
+	    <p class="mb-5">3 Thorborn Avenue, Sabo Yaba, Lagos Nigeria.<br/>Phone:(234) 803-395-4301</p>
           
             <form method="post" data-aos="fade">
               <div class="form-group row">
@@ -497,7 +497,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <h3>About OneSchool</h3>
+            <h3>About MobileProf</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro consectetur ut hic ipsum et veritatis corrupti. Itaque eius soluta optio dolorum temporibus in, atque, quos fugit sunt sit quaerat dicta.</p>
           </div>
 
