@@ -44,7 +44,7 @@
       
       <div class="container-fluid">
         <div class="d-flex align-items-center">
-          <div class="site-logo mr-auto w-25"><a href="index.html">MobileProf</a></div>
+          <div class="site-logo mr-auto w-25"><a href="index.php">MobileProf</a></div>
 
           <div class="mx-auto text-center">
             <nav class="site-navigation position-relative text-right" role="navigation">
@@ -111,12 +111,12 @@
 
             <div class="course bg-white h-100 align-self-stretch">
               <figure class="m-0">
-                <a href="single.php"><img src="images/office-training.jpeg" alt="Image" class="img-fluid"></a>
+                <a href="single.php?service=business"><img src="images/office-training.jpeg" alt="Image" class="img-fluid"></a>
               </figure>
 		      <div class="course-inner-text py-4 px-4">
 			      <!--	<span class="course-price">&#8358 40,000</span>-->
                 <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">Mobile Business Productivity Tools</a></h3>
+                <h3><a href="single.php?service=business">Mobile Business Productivity Tools</a></h3>
                 <p>You will learn how to use Mobile Tools to create and Edit your Office documents, convert to PDF, and even send to print, from your mobile device. </p>
               </div>
               <div class="d-flex border-top stats">
@@ -132,7 +132,7 @@
               <div class="course-inner-text py-4 px-4">
 		      <!--<span class="course-price">$99</span>-->
                 <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">Code on Smartphone</a></h3>
+                <h3><a href="ingle.php?service=developers">Code on Smartphone</a></h3>
                 <p>You will learn how to use Mobile Linux Tools to build real life apps compatible for any screen sizes. </p>
               </div>
               <div class="d-flex border-top stats">
