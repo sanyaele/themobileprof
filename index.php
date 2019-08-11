@@ -49,10 +49,10 @@
           <div class="mx-auto text-center">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                <li><a href="#home-section" class="nav-link">Home</a></li>
-                <li><a href="#courses-section" class="nav-link">Services</a></li>
-                <li><a href="#programs-section" class="nav-link">Programs</a></li>
-                <li><a href="#teachers-section" class="nav-link">Teachers</a></li>
+		<li><a href="index.php" class="nav-link">Home</a></li>
+                <li><a href="service.php" class="nav-link">Services</a></li>
+	<li><a href="#programs-section" class="nav-link">Videos</a></li>
+                <li><a href="#teachers-section" class="nav-link">Facilitators</a></li>
               </ul>
             </nav>
           </div>
@@ -241,10 +241,10 @@
           <div class="col-md-3 ml-auto">
             <h3>Links</h3>
             <ul class="list-unstyled footer-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Courses</a></li>
-              <li><a href="#">Programs</a></li>
-              <li><a href="#">Teachers</a></li>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="services.php">Services</a></li>
+              <li><a href="#">Videos</a></li>
+              <li><a href="#">Facilitators</a></li>
             </ul>
           </div>
 
