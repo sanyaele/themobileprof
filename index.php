@@ -40,35 +40,7 @@
     </div>
    
     
-    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
-      
-      <div class="container-fluid">
-        <div class="d-flex align-items-center">
-          <div class="site-logo mr-auto w-25"><a href="index.php">MobileProf</a></div>
-
-          <div class="mx-auto text-center">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-		<li><a href="index.php" class="nav-link">Home</a></li>
-                <li><a href="service.php" class="nav-link">Services</a></li>
-	<li><a href="#programs-section" class="nav-link">Videos</a></li>
-                <li><a href="#teachers-section" class="nav-link">Facilitators</a></li>
-              </ul>
-            </nav>
-          </div>
-
-          <div class="ml-auto w-25">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                <li class="cta"><a href="#contact-section" class="nav-link"><span>Contact Us</span></a></li>
-              </ul>
-            </nav>
-            <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
-          </div>
-        </div>
-      </div>
-      
-    </header>
+    <?php include"header.php"; ?>
 
     <div class="intro-section" id="home-section">
       
@@ -80,7 +52,7 @@
                 <div class="col-lg-6 mb-4">
                   <h1  data-aos="fade-up" data-aos-delay="100">Inspiring Africa one Smartphone at a time</h1>
                   <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">Increase productivity by using your  Mobile phones to it's full potential as mini portable computers that it is. </p>
-                  <p data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-primary py-3 px-5 btn-pill">sample</a></p>
+                  <p data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-primary py-3 px-5 btn-pill">need website or app ?</a></p>
 
                 </div>
 
@@ -94,86 +66,7 @@
     </div>
 
     
-    <div class="site-section courses-title" id="courses-section">
-      <div class="container">
-        <div class="row mb-5 justify-content-center">
-          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-	  <h2 class="section-title"><?php echo"Trainings/Softwares"; ?></h2>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100">
-      <div class="container">
-        <div class="row">
-
-          <div class="owl-carousel col-12 nonloop-block-14">
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="single.php?service=business"><img src="images/office-training.jpeg" alt="Image" class="img-fluid"></a>
-              </figure>
-		      <div class="course-inner-text py-4 px-4">
-			      <!--	<span class="course-price">&#8358 40,000</span>-->
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="single.php?service=business">Mobile Business Productivity Tools</a></h3>
-                <p>You will learn how to use Mobile Tools to create and Edit your Office documents, convert to PDF, and even send to print, from your mobile device. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="single.php?service=developers"><img src="images/phonedev.png" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-		      <!--<span class="course-price">$99</span>-->
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="ingle.php?service=developers">Code on Smartphone</a></h3>
-                <p>You will learn how to use Mobile Linux Tools to build real life apps compatible for any screen sizes. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="single.php"><img src="images/office365.jpeg" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-		      <!--<span class="course-price">$99</span>-->
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">Office 365 Software</a></h3>
-                <p>Download, Install and learn how to use microsoft office 365 software, in and out of your workplace. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-	    </div>
-
-
-
-
-          </div>
-
-         
-
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-7 text-center">
-            <button class="customPrevBtn btn btn-primary m-1">Prev</button>
-            <button class="customNextBtn btn btn-primary m-1">Next</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
+  <?php include"services.php";?>
 
 
 
@@ -230,53 +123,9 @@
     </div>
     
      
-    <footer class="footer-section bg-white">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <h3>About MobileProf</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro consectetur ut hic ipsum et veritatis corrupti. Itaque eius soluta optio dolorum temporibus in, atque, quos fugit sunt sit quaerat dicta.</p>
-          </div>
+    
 
-          <div class="col-md-3 ml-auto">
-            <h3>Links</h3>
-            <ul class="list-unstyled footer-links">
-              <li><a href="index.php">Home</a></li>
-              <li><a href="services.php">Services</a></li>
-              <li><a href="#">Videos</a></li>
-              <li><a href="#">Facilitators</a></li>
-            </ul>
-          </div>
-
-          <div class="col-md-4">
-            <h3>Subscribe</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt incidunt iure iusto architecto? Numquam, natus?</p>
-            <form action="#" class="footer-subscribe">
-              <div class="d-flex mb-5">
-                <input type="text" class="form-control rounded-0" placeholder="Email">
-                <input type="submit" class="btn btn-primary rounded-0" value="Subscribe">
-              </div>
-            </form>
-          </div>
-
-        </div>
-
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <div class="border-top pt-5">
-            <p>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-      </p>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </footer>
-
-  
+  <?php include"footer.php"; ?>
     
   </div> <!-- .site-wrap -->
 
