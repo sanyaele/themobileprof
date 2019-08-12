@@ -63,7 +63,7 @@
       </div>
     </div>
     
-   <?php include "trainings.php"; ?> 
+   <?php if(!isset($second))include "services.php"; else include "trainings.php"; ?> 
          
     
     
