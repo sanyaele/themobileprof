@@ -2,15 +2,15 @@
       
       <div class="container-fluid">
         <div class="d-flex align-items-center">
-          <div class="site-logo mr-auto w-25"><a href="home">MobileProf</a></div>
+          <div class="site-logo mr-auto w-25"><a href="home">TheMobileProf</a></div>
 
           <div class="mx-auto text-center">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
 		<li><a href="home" class="nav-link">Home</a></li>
-                <li><a href="services" class="nav-link">Services</a></li>
-	<li><a href="#programs-section" class="nav-link">Videos</a></li>
-                <li><a href="#teachers-section" class="nav-link">Facilitators</a></li>
+                <li><a href="services" class="nav-link">Website Design</a></li>
+	<li><a href="#programs-section" class="nav-link">Video Training Packs</a></li>
+                <li><a href="#teachers-section" class="nav-link">Live Training</a></li>
               </ul>
             </nav>
           </div>

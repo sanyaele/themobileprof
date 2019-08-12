@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Mobile Profesionals &mdash; office 365 </title>
+    <title>Mobile Profesionals - Web Development and Office Productivity</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -51,8 +51,8 @@
               <div class="row align-items-center">
                 <div class="col-lg-6 mb-4">
                   <h1  data-aos="fade-up" data-aos-delay="100">Inspiring Africa one Smartphone at a time</h1>
-                  <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">Increase productivity by using your  Mobile phones to it's full potential as mini portable computers that it is. </p>
-                  <p data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-primary py-3 px-5 btn-pill">need website or app ?</a></p>
+                  <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">Equiping Web Application Developers and Office Professionals with cutting edge <strong class="text-white">Mobile technology</strong> support</p>
+			  <p data-aos="fade-up" data-aos-delay="300"><a href="https://api.whatsapp.com/send?phone=+2348033954301" class="btn btn-success py-3 px-5 btn-pill"><img src="images/whatsapp-icon.png" style="width: 40px;"> WhatsApp us for more info</a></p>
 
                 </div>
 
