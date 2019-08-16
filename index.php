@@ -24,6 +24,27 @@
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){
+    	dataLayer.push(arguments);
+    }
+    gtag('js',new Date());
+    
+    gtag('config', 'UA-7718160-1');
+    gtag('config', 'AW-725647545');
+    </script>
+    <script>
+    	function gta_report_conversion(url){
+    		var callback = function (){
+    			if(typeof(ur) != "undefined"){
+    				window.location = url;
+    			}
+    		};
+    		gtag('event', 'conversion', {'send_to':'AW-725647545/j0qnCLvC_aUBELmBgtoC', 'event_calback': callback});
+    		return false;
+    	}
+    </script>
     
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">

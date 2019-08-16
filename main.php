@@ -26,7 +26,7 @@ if (isset($first) && !isset($second))
 {
 if ($first == 'home')
 {
-	include "index.php";
+	include "single.php";
 }
 if ($first == 'services')
 {
