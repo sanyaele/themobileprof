@@ -101,7 +101,7 @@
 
             
             <h2 class="section-title mb-3">Message Us</h2>
-	    <p class="mb-5">3 Thorborn Avenue, Sabo Yaba, Lagos Nigeria.<br/>Phone:(234) 803-395-4301</p>
+	    <p class="mb-5">3 Thorborn Avenue, Sabo Yaba, Lagos Nigeria.<br/>Phone: <a href="tel:+234803-395-4301">0803-395-4301</a></p>
           
             <form method="post" data-aos="fade">
               <div class="form-group row">

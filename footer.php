@@ -12,9 +12,9 @@ We specialize in providing online business solutions and we do it <strong>fast</
             <h3>Links</h3>
             <ul class="list-unstyled footer-links">
               <li><a href="index.php">Home</a></li>
-              <li><a href="services.php">Services</a></li>
-              <li><a href="#">Videos</a></li>
-              <li><a href="#">Facilitators</a></li>
+              <li><a href="services.php">Website Design</a></li>
+              <li><a href="#">Video Training Packs</a></li>
+              <li><a href="#">Live Training</a></li>
             </ul>
           </div>
 

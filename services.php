@@ -21,7 +21,8 @@
 			      <!--	<span class="course-price">&#8358 40,000</span>-->
                 <div class="meta"><span class="icon-clock-o"></span>12 Lessons / 4 weeks</div>
                 <h3><a href="single.php?service=business">Mobile Business Productivity Tools</a></h3>
-                <p>You will learn how to use Mobile Tools to create and Edit your Office documents, convert to PDF, and even send to print, from your mobile device. </p>
+		<p>You will learn how to use Mobile Tools to create and Edit your Office documents, convert to PDF, and even send to print, from your mobile device. </p>
+		<p> Collaborate with colleagues anywhere in the world to view and edit office documents together. </p>
               </div>
               <div class="d-flex border-top stats">
                 <div class="py-3 px-4"><span class="icon-users"></span> View curriculum</div>
@@ -36,9 +37,9 @@
               <div class="course-inner-text py-4 px-4">
 		      <!--<span class="course-price">$99</span>-->
                 <div class="meta"><span class="icon-clock-o"></span>12 Lessons / 4 Weeks</div>
-                <h3><a href="ingle.php?service=developers">Code on Smartphone</a></h3>
+                <h3><a href="single.php?service=developers">Code on Smartphone</a></h3>
 		<p>Gone are the days when you need access to a PC to build web applications. </p>
-		<p>Here, you will learn how to use Mobile Linux Tools to build real life apps compatible for any screen sizes. </p>
+		<p>Right on your Smartphone, you will learn how to use Mobile Linux Tools to build real life apps compatible for any screen sizes. </p>
               </div>
               <div class="d-flex border-top stats">
                 <div class="py-3 px-4"><span class="icon-users"></span> View Curriculum</div>
