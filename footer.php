@@ -3,9 +3,9 @@
         <div class="row">
           <div class="col-md-4">
             <h3>About MobileProf</h3>
-            <p>MobileProf is a web technology solutions provider offering various services to various industries, these services includes Software Development, Web Application Development,Mobile Web App Development, Smart phones productivity tools trainings, and more recently Electronic Learning Solutions.
+            <p>MobileProf is a web technology solutions provider offering various services to various industries. These services includes Software Development, Web Application Development, Smart phones productivity tools trainings, and more recently Electronic Learning Solutions.
 
-We specialize in providing online business solutions on PCs and Mobile devices.</p>
+We specialize in providing online business solutions and we do it <strong>fast</strong>, because our developers are on Mobile</p>
           </div>
 
           <div class="col-md-3 ml-auto">
@@ -20,7 +20,7 @@ We specialize in providing online business solutions on PCs and Mobile devices.<
 
           <div class="col-md-4">
             <h3>Subscribe</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt incidunt iure iusto architecto? Numquam, natus?</p>
+            <p>Get the latest information on our service updates and new training videos. Your details are not given to any third parties.</p>
             <form action="#" class="footer-subscribe">
               <div class="d-flex mb-5">
                 <input type="text" class="form-control rounded-0" placeholder="Email">
