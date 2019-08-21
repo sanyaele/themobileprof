@@ -24,11 +24,11 @@ $ddates = \get_date_range($day);
 // If an agent is registering for a user
 if (!empty($_GET['agent'])){
   if ($agent_id = get_agent($link, $_GET['agent'])){
-    $_SESSION['agent'] = $agent_id;
+    $_SESSION['proxy'] = $_SESSION['agent'] = $agent_id;
   }
-} else if (!empty($_GET['ref'])){
+} else if (!empty($_GET['ref'])){ // If user is referred by an agent
   if ($agent_id = get_agent($link, "", $_GET['ref'])){
-    $_SESSION['agent'] = $agent_id;
+    $_SESSION['referrer'] = $agent_id;
   }
 }
 
@@ -179,7 +179,7 @@ Collaborate with your Team mates on office documents from your mobile devices an
             </select>
           </div>
           <div class="col-md-6 col-sm-6">
-              Select how many seats you want to pay for
+              Select how many seats you want to pay forfor
               <select name="seats" id="seats" class="form-control form-control-lg bg-primary text-white">
                 <?php
                 if (!empty($seats)){
@@ -202,11 +202,11 @@ Collaborate with your Team mates on office documents from your mobile devices an
               <?php
                 if (!empty($coupon['week1'])){
               ?>
-                <div class="font-weight-bold"> <s class="text-danger">N10,000</s> <span class="text-primary">Free</span></div>
+                <div class="font-weight-bold"> <s class="text-danger">N6,250</s> <span class="text-primary">Free</span></div>
               <?php
               } else {
               ?>
-                <div class="text-primary font-weight-bold">N10,000</div>
+                <div class="text-primary font-weight-bold">N6,250</div>
 
               <?php
               }
@@ -232,11 +232,11 @@ Collaborate with your Team mates on office documents from your mobile devices an
               <?php
                 if (!empty($coupon['week2'])){
               ?>
-                <div class="font-weight-bold"> <s class="text-danger">N10,000</s> <span class="text-primary">Free</span></div>
+                <div class="font-weight-bold"> <s class="text-danger">N6,250</s> <span class="text-primary">Free</span></div>
               <?php
               } else {
               ?>
-                <div class="text-primary font-weight-bold">N10,000</div>
+                <div class="text-primary font-weight-bold">N6,250</div>
 
               <?php
               }
@@ -262,11 +262,11 @@ Collaborate with your Team mates on office documents from your mobile devices an
               <?php
                 if (!empty($coupon['week3'])){
               ?>
-                <div class="font-weight-bold"> <s class="text-danger">N10,000</s> <span class="text-primary">Free</span></div>
+                <div class="font-weight-bold"> <s class="text-danger">N6,250</s> <span class="text-primary">Free</span></div>
               <?php
               } else {
               ?>
-                <div class="text-primary font-weight-bold">N10,000</div>
+                <div class="text-primary font-weight-bold">N6,250</div>
 
               <?php
               }
@@ -292,11 +292,11 @@ Collaborate with your Team mates on office documents from your mobile devices an
               <?php
                 if (!empty($coupon['week4'])){
               ?>
-                <div class="font-weight-bold"> <s class="text-danger">N10,000</s> <span class="text-primary">Free</span></div>
+                <div class="font-weight-bold"> <s class="text-danger">N6,250</s> <span class="text-primary">Free</span></div>
               <?php
               } else {
               ?>
-                <div class="text-primary font-weight-bold">N10,000</div>
+                <div class="text-primary font-weight-bold">N6,250</div>
 
               <?php
               }
@@ -353,8 +353,8 @@ Collaborate with your Team mates on office documents from your mobile devices an
           <div class="card">
             <h3 class="card-header">Training Details</h3>
             <div class="card-body">
-              <div class="display-3 text-dark">N40,000</div>
-              <del class="display-4 text-muted">N72,000</del>
+              <div class="display-3 text-dark">N25,000</div>
+              <del class="display-4 text-muted">N40,000</del>
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">3 Thorborn Avenue, Sabo, Yaba</li>

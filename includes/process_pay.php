@@ -39,8 +39,7 @@ class process {
     private $callback = "https://www.seonigeria.com/confirm.php";
     private $pay_url;
 
-    function __construct(){
-        global $link;
+    function __construct($link){
         $this->dblink = $link;
 
         if (empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['email']) || empty($_POST['mobile']) || empty($_POST['day']) || empty($_POST['monthYear']) || (empty($_POST['week1']) && empty($_POST['week2']) && empty($_POST['week3']) && empty($_POST['week4'])) ){
@@ -216,8 +215,7 @@ class verify {
     private $ref;
     private $details = array();
 
-    function __construct($ref){
-        global $link;
+    function __construct($link, $ref){
         $this->dblink = $link;
 
         $this->ref = \addslash($ref);
@@ -293,7 +291,10 @@ class verify {
         Amount: ".$this->details['amount']."\n\n 
         Course: ".$this->details['course_name']."\n\n
         Coupon Name: ".$this->details['coupon_name']."\n\n".
-        "A Team member will call you within 24 hours with additional class details.";
+        "Venue: 3 Thorborn Avenue, Sabo, Yaba. 1st Floor (Above the Liberian Consulate)"."\n".
+        "Time: 10am to 1pm"."\n".
+        "Days: ".$this->details['class_day']."\n\n".
+        "For Any further Clarifications, please call Samuel on 08033954301.";
         $headers = "From: noreply@seonigeria.com\n"; 
         $headers .= "Reply-To: contact@seonigeria.com";   
         

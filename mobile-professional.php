@@ -11,22 +11,14 @@ use Training\getSeats AS getSeatNum;
 $_SESSION['course'] = 1;
 ///////////////////////////////////////
 
-
-
-if (!empty($_GET['day'])){
-  $day = $_GET['day'];
-} else {
-  $day = "Monday";
-}
-$ddates = \get_date_range($day);
-
+$ddates['my'] = date("F Y", strtotime("next month"));
 ////////////////////////////////////////
 // If an agent is registering for a user
 if (!empty($_GET['agent'])){
   if ($agent_id = get_agent($link, $_GET['agent'])){
-    $_SESSION['agent'] = $agent_id;
+    $_SESSION['proxy'] = $_SESSION['agent'] = $agent_id;
   }
-} else if (!empty($_GET['ref'])){
+} else if (!empty($_GET['ref'])){  // If user is referred by an agent
   if ($agent_id = get_agent($link, "", $_GET['ref'])){
     $_SESSION['agent'] = $agent_id;
   }
@@ -147,23 +139,23 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
             <p class="firstp">
               The <strong class="text-primary">Mobile Professional Course</strong> is a business training program that enable teams to be more productive by combining the <strong>flexibility</strong> of accessing work documents from their mobile devices with the <strong>power of Cloud Computing</strong>. 
               <div class="row p-3">
-                <ul class="hidlist col-sm-9">
+                <ul class="hidlist col-md-9 col-12">
                   <li><i class="fa fa-check-square"></i> Make, edit, modify and share ALL documents.</li>
                   <li><i class="fa fa-check-square"></i> Co-create, collaborate, and work with team on ALL documents</li>
                   <li><i class="fa fa-check-square"></i> Power, prepare and present</li>
                   <li><i class="fa fa-check-square"></i> Convert, go cloud</li>
                   <li><i class="fa fa-check-square"></i> ALL from your phone. Anytime, anywhere.</li>
                 </ul>
-                <img src="images/discount.png" alt="Discount to 40000" class="img-responsive col-sm-3">
+                <img src="images/discount.png" alt="Discount to 25000" class="img-responsive col-md-3 col-8 offset-2 offset-md-0">
               </div>
             </p>
           
           </div>
           <div class="row bg-light rounded">
-            <div class="col-md-6 col-sm-6 p-0">
+            <div class="col-md-6 col-md-6 p-0">
               <img src="images/presentation.jpeg" alt="Office Presentation" class="img-fluid rounded">
             </div>
-            <div class="story col-md-6 col-sm-6 p-3">
+            <div class="story col-md-6 col-md-6 p-3">
               <p> Mabel is heading to a meeting with two of her colleagues, this Prospect had been referred to them by their biggest Client. The light rain was pattering on her side of the car window, as the Uber cab they are riding slowly makes its way through a slightly flooded street in a section of Lekki with a few portholes littered throughout the length of the street. Why the construction crew has not finished repairing this road beats Mabel, they have been stuck on “repairing” this road since beginning of the year, now the rainy season is here, who knows how much longer this was going to take?
               </p> <p>
               “Juliet, did you copy the Powerpoint presentation from the computer?” Mabel asks.
@@ -182,20 +174,20 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
 
 
           <div id="details" class="row mt-4 mb-4">
-            <div class="bg-primary col-md-12 text-white pt-3 pb-1 rounded-top">
+            <div class="bg-primary col-md-12 text-white pt-3 mb-3 rounded-top">
               <h3 class="text-light">4 days intensive training spread over 4 weeks</h3>
             </div>
-            <div class="col-md-7 col-sm-6">
+            <div class="col-md-7">
               <div>
-                <span class="display-4 text-primary mr-3">N40,000</span>
-                <del class="display-4 text-muted">N72,000</del>
+                <span class="display-4 text-primary mr-3">N25,000</span>
+                <del class="display-4 text-muted">N40,000</del>
               </div>    
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">3 Thorborn Avenue, Sabo, Yaba</li>
                 <li class="list-group-item">Fee covers Training, Training materials and Certificate of Completion</li>
               </ul>
             </div>
-            <div class="benefits col-md-5 col-sm-6">
+            <div class="benefits col-md-5">
               <h3><?php echo $ddates['my']; ?></h3>
               <div data-toggle="modal" data-target="#payModal">
                 <a href="mobile-pro-registration.php" target="pay_frame" class="btn btn-primary m-1">Register for <?php echo $ddates['my']; ?> Classes</a>

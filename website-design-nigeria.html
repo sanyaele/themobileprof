@@ -11,6 +11,20 @@
     gtag('js', new Date());
     
     gtag('config', 'UA-7718160-1');
+    gtag('config', 'AW-725647545');
+    </script>
+
+    <!-- Event snippet for WhatsApp conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. --> 
+    <script> 
+	    function gtag_report_conversion(url) { 
+		    var callback = function () { 
+			    if (typeof(url) != 'undefined') { 
+				    window.location = url; 
+			    } 
+		    }; 
+		    gtag('event', 'conversion', { 'send_to': 'AW-725647545/j0qnCLvC_aUBELmBgtoC', 'event_callback': callback }); 
+		    return false; 
+	    } 
     </script>
 
     <meta charset="utf-8">
@@ -89,6 +103,11 @@
 
           <p>For some clients, after having built a website, they are not able to reach the developer who built the website to make changes, leaving obsolete content on their websites, we would be glad to help, we  have competent hands that have been trained in the best digital marketing  academies available, and we are responsive.
           </p>
+	  <p>
+		  <a onclick="return gtag_report_conversion('https://api.whatsapp.com/send?phone=+2348033954301');" href="https://api.whatsapp.com/send?phone=+2348033954301">
+	  <img  class="img-fluid" src="assets/whatsapp-chat.png" alt="Chat with us on whatsapp">
+		  </a>
+	  </p>
         </div>
       </div>
       <!-- /.row -->

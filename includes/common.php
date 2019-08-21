@@ -92,7 +92,7 @@ function get_agent ($db, $email="", $code=""){
 	$result = @mysqli_query($db, $sql);
 	$row = @mysqli_fetch_assoc($result);
 	if (!empty($row['id'])){
-		return $row['id'];
+		return $row;
 	} else {
 		return FALSE;
 	}

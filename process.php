@@ -17,7 +17,7 @@ if (empty($_POST['for'])){
 
 
 // FORM HAS BEEN SUBMITTED, BUT PAYMENT HAS NOT BEEN INITIATED
-$make_pay = new initiate;
+$make_pay = new initiate($link);
 
 $_SESSION['ref'] = $make_pay->ref; //Store ref number in session
 
@@ -40,7 +40,7 @@ try {
         }
 
         // If it is not an agent, filling this form
-        if (empty($_SESSION['agent'])){
+        if (empty($_SESSION['proxy'])){
             header ("Location: ".$destination); // Redirect user to payment
         }
         // ELse, proceed to page below to view and send user payment information

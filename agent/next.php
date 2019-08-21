@@ -12,13 +12,9 @@ class agent_register {
             $this->coupon = addslashes($_POST['coupon']);
         }
 
-        if ($_POST['register'] == "Yes"){
-            // redirect to regitration page
-            header("Location: https://www.seonigeria.com/mobile-business-training.php?agent=".$_SESSION['email']."&coupon=".$this->coupon);
-        } else {
-            echo "Copy and Send the user this Link: <input type=\"text\" name=\"url\" id=\"url\" value=\"https://www.seonigeria.com/a/".$_SESSION['code']."/".$this->coupon."\">";
-            exit();
-        }
+        // redirect to registration page
+        header("Location: https://www.seonigeria.com/mobile-business-training.php?agent=".$_SESSION['email']."&coupon=".$this->coupon);
+        
     }
 }
 if (!empty($_POST['register'])){

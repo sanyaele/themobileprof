@@ -18,15 +18,28 @@ if (!empty($_REQUEST['day'])){
 } else {
   $day = "Monday";
 }
-$ddates = \get_date_range($day);
+
+
+if (!empty($_GET['month'])){
+  
+  if ($_GET['month'] == 'this'){
+    $month = date("F");
+  } else {
+    $month = $_GET['month'];
+  }
+  $ddates = \get_date_range($day, $month);
+} else {
+  $ddates = \get_date_range($day);
+}
+
 
 ////////////////////////////////////////
 // If an agent is registering for a user
 if (!empty($_GET['agent'])){
   if ($agent_id = get_agent($link, $_GET['agent'])){
-    $_SESSION['agent'] = $agent_id;
+    $_SESSION['proxy'] = $_SESSION['agent'] = $agent_id;
   }
-} else if (!empty($_GET['ref'])){
+} else if (!empty($_GET['ref'])){  // If user is referred by an agent
   if ($agent_id = get_agent($link, "", $_GET['ref'])){
     $_SESSION['agent'] = $agent_id;
   }
@@ -133,17 +146,17 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
             </div>
             <div class="row">
                 <div class="cal-date col-6">
-                    <div><input type="checkbox" name="week1" id="week1" value="week1" class="training_check" <?php echo !empty($coupon['week1']) ? "checked" : ""; ?>>I'm Interested</div>
+                    <div><input type="checkbox" name="week1" id="week1" value="week1" class="training_check" <?php echo !empty($coupon['week1']) ? "checked" : "checked"; ?>>I'm Interested</div>
                     
                     <p><?php echo $ddates['first']; ?></p>
                     <?php
                       if (!empty($coupon['week1'])){
                     ?>
-                      <div class="font-weight-bold"> <s class="text-danger">N10,000</s> <span class="text-primary">Free</span></div>
+                      <div class="font-weight-bold"> <s class="text-danger">N6,250</s> <span class="text-primary">Free</span></div>
                     <?php
                     } else {
                     ?>
-                      <div class="text-primary font-weight-bold">N10,000</div>
+                      <div class="text-primary font-weight-bold">N6,250</div>
 
                     <?php
                     }
@@ -164,16 +177,16 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
               <div class="row">
 
                 <div class="cal-date col-6">
-                    <div><input type="checkbox" name="week2" id="week2" value="week2" class="training_check" <?php echo !empty($coupon['week2']) ? "checked" : ""; ?>>I'm Interested</div>
+                    <div><input type="checkbox" name="week2" id="week2" value="week2" class="training_check" <?php echo !empty($coupon['week2']) ? "checked" : "checked"; ?>>I'm Interested</div>
                     <p><?php echo $ddates['second'];?></p>
                     <?php
                       if (!empty($coupon['week2'])){
                     ?>
-                      <div class="font-weight-bold"> <s class="text-danger">N10,000</s> <span class="text-primary">Free</span></div>
+                      <div class="font-weight-bold"> <s class="text-danger">N6,250</s> <span class="text-primary">Free</span></div>
                     <?php
                     } else {
                     ?>
-                      <div class="text-primary font-weight-bold">N10,000</div>
+                      <div class="text-primary font-weight-bold">N6,250</div>
 
                     <?php
                     }
@@ -194,16 +207,16 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
               <div class="row">
 
                 <div class="cal-date col-6">
-                    <div><input type="checkbox" name="week3" id="week3" value="week3" class="training_check" <?php echo !empty($coupon['week3']) ? "checked" : ""; ?>>I'm Interested</div>
+                    <div><input type="checkbox" name="week3" id="week3" value="week3" class="training_check" <?php echo !empty($coupon['week3']) ? "checked" : "checked"; ?>>I'm Interested</div>
                     <p><?php echo $ddates['third'];?></p>
                     <?php
                       if (!empty($coupon['week3'])){
                     ?>
-                      <div class="font-weight-bold"> <s class="text-danger">N10,000</s> <span class="text-primary">Free</span></div>
+                      <div class="font-weight-bold"> <s class="text-danger">N6,250</s> <span class="text-primary">Free</span></div>
                     <?php
                     } else {
                     ?>
-                      <div class="text-primary font-weight-bold">N10,000</div>
+                      <div class="text-primary font-weight-bold">N6,250</div>
 
                     <?php
                     }
@@ -224,16 +237,16 @@ if (!empty($coupon['seats']) && $seats > $coupon['seats']){
               <div class="row">
 
                 <div class="cal-date col-6">
-                    <div><input type="checkbox" name="week4" id="week4" value="week4" class="training_check" <?php echo !empty($coupon['week4']) ? "checked" : ""; ?>>I'm Interested</div>
+                    <div><input type="checkbox" name="week4" id="week4" value="week4" class="training_check" <?php echo !empty($coupon['week4']) ? "checked" : "checked"; ?>>I'm Interested</div>
                     <p><?php echo $ddates['fourth'];?></p>
                     <?php
                       if (!empty($coupon['week4'])){
                     ?>
-                      <div class="font-weight-bold"> <s class="text-danger">N10,000</s> <span class="text-primary">Free</span></div>
+                      <div class="font-weight-bold"> <s class="text-danger">N6,250</s> <span class="text-primary">Free</span></div>
                     <?php
                     } else {
                     ?>
-                      <div class="text-primary font-weight-bold">N10,000</div>
+                      <div class="text-primary font-weight-bold">N6,250</div>
 
                     <?php
                     }

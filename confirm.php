@@ -8,7 +8,7 @@ use Process\verify AS confirm;
 
 if (!empty($_GET['ref'])){
     // PAYMENT HAS BEEN INITIATED, VERIFY THE PAYMENT
-    $verify_pay = new confirm($_GET['ref']);
+    $verify_pay = new confirm($link, $_GET['ref']);
 
     if (!$verify_pay->confirm()){ // If payment could not be verified
         echo "Thank you. We will verify your payment and get back to you as soon as possible";
